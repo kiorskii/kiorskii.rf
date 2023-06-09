@@ -326,7 +326,7 @@
                                 <img src="img/items/hk-r/s/5.jpg" width="85" height="110">
                             </a>
                         </li>
-                        
+
                     </ul>
                 </li>
                 <li>
@@ -458,27 +458,29 @@
                 </li>
                 <li>
                     <h2 class="card__title">футба би ски</h2>
-                    <ul class="order-options">
+                    <form class="item-select-form">
+                        <label for="size">Выберите размер:</label>
+                        <select id="size" name="size">
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                        </select>
+                        <br>
                         <li class="order-options-item">
-                            цвет:
-                            <select name="цвет" id="item-color">
-                                <option value="black">чёрный</option>
-                              </select>
-                        </li>
-                        <li class="order-options-item">
-                            размер:
-                            <select name="размер" id="item-size">
-                                <option value="size-M">l</option>
-                                <option value="size-L">xl</option>
-                              </select>
-                        </li>
-                        <li class="order-options-item card__price card__price--common">
                             прайс: 3500₽
                         </li>
-                        <li class="order-options-item">
-                            <button class="card__add" id="tb-b-add" onclick="addToCart(id)">в корзину</button>
-                        </li>
-                    </ul>
+                        <section>
+                            <form action="">
+                                <p class="qty">
+                                    <label for="qty">Quantity:</label>
+                                    <button class="qtyminus" aria-hidden="true">&minus;</button>
+                                    <input type="number" name="qty" id="qty" min="1" max="10" step="1" value="1">
+                                    <button class="qtyplus" aria-hidden="true">&plus;</button>
+                                </p>
+                            </form>
+                        </section>
+                        <br>
+                        <input type="submit" value="Добавить в корзину">
+                    </form>
                     <h3>Описание</h3>
                     <div class="item-description">
                         <p>
