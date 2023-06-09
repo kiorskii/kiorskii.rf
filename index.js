@@ -286,34 +286,10 @@ if (input !== undefined && btnminus !== undefined && btnplus !== undefined && in
 
 } // End if test
 
-    var form = document.querySelector("form");
-
-    form.addEventListener('submit', function(event) {
-
-        var size = document.getElementById('size').value;
-        var quantity = document.getElementById('qty').value;
-
-        // Ваши действия с полученными значениями
-        console.log('Размер: ' + size);
-        console.log('Количество: ' + quantity);
-
-        // Здесь вы можете отправить данные на сервер для обработки и добавления в корзину
-        // Например, с помощью AJAX-запроса
-
-        event.preventDefault(); // Отменяем стандартное поведение формы (перезагрузку страницы)
-
-        // Очищаем форму после отправки данных
-        form.reset();
-    });
-
-
 function submitPurchaseForm(id) {
     var size = document.getElementById('size').value;
     var quantity = document.getElementById('qty').value;
-
-    switch (id === "tb-w-add") {
-        case cartArray
-    }
+    var form = document.querySelector("form");
 
     if (id === "tb-w-add") {
         if (cartArray[0].attr.size === "0") {
