@@ -332,24 +332,29 @@
                 <li>
                     <h2>зип худи кёрски</h2>
                     <p>красный</p>
-                    <ul class="order-options">
+                    <form class="item-select-form">
+                        <div class="item-select-form-warpper">
+                            <label for="size">размер:</label>
+                            <select id="size" name="size">
+                                <option value="L">l</option>
+                                <option value="XL">xl</option>
+                            </select>
+                        </div>
                         <li class="order-options-item">
-                            цвет:
-                            <select name="цвет" id="item-color">
-                                <option value="red">красный</option>
-                              </select>
+                            прайс: 3500₽
                         </li>
-                        <li class="order-options-item">
-                            размер:
-                            <select name="размер" id="item-size">
-                                <option value="size-M">m</option>
-                                <option value="size-L">l</option>
-                              </select>
-                        </li>
-                        <li class="order-options-item">
-                            <button disabled>солд</button>
-                        </li>
-                    </ul>
+                        <section>
+                            <form action="">
+                                <p class="qty">
+                                    <label for="qty">количество:</label>
+                                    <button class="qtyminus" aria-hidden="true">&minus;</button>
+                                    <input type="number" name="qty" id="qty" min="1" max="10" step="1" value="1">
+                                    <button class="qtyplus" aria-hidden="true">&plus;</button>
+                                </p>
+                            </form>
+                        </section>
+                        <input class="addtocart-button"type="submit" value="в корзину">
+                    </form>
                     <h3>Описание</h3>
                     <p>
                         Размеры: M(2), L(2) / По замерам можете написать в лс
@@ -458,28 +463,29 @@
                 </li>
                 <li>
                     <h2 class="card__title">футба би ски</h2>
+                    <p>чёрная</p>
                     <form class="item-select-form">
-                        <label for="size">Выберите размер:</label>
+                        <div class="item-select-form-warpper">
+                        <label for="size">размер:</label>
                         <select id="size" name="size">
-                            <option value="M">M</option>
-                            <option value="L">L</option>
+                            <option value="L">l</option>
+                            <option value="XL">xl</option>
                         </select>
-                        <br>
+                        </div>
                         <li class="order-options-item">
                             прайс: 3500₽
                         </li>
                         <section>
                             <form action="">
                                 <p class="qty">
-                                    <label for="qty">Quantity:</label>
+                                    <label for="qty">количество:</label>
                                     <button class="qtyminus" aria-hidden="true">&minus;</button>
                                     <input type="number" name="qty" id="qty" min="1" max="10" step="1" value="1">
                                     <button class="qtyplus" aria-hidden="true">&plus;</button>
                                 </p>
                             </form>
                         </section>
-                        <br>
-                        <input type="submit" value="Добавить в корзину">
+                        <input class="addtocart-button"type="submit" value="в корзину">
                     </form>
                     <h3>Описание</h3>
                     <div class="item-description">
@@ -567,27 +573,30 @@
                 </li>
                 <li>
                     <h2>футба би ски</h2>
-                    <ul class="order-options">
-                        <li class="order-options-item">
-                            цвет:
-                            <select name="цвет" id="item-color">
-                                <option value="white">белый</option>
-                              </select>
-                        </li>
-                        <li class="order-options-item">
-                            размер:
-                            <select name="размер" id="item-size">
-                                <option value="size-M">l</option>
-                                <option value="size-L">xl</option>
-                              </select>
-                        </li>
+                    <p>белая</p>
+                    <form class="item-select-form">
+                        <div class="item-select-form-warpper">
+                            <label for="size">размер:</label>
+                            <select id="size" name="size">
+                                <option value="L">l</option>
+                                <option value="XL">xl</option>
+                            </select>
+                        </div>
                         <li class="order-options-item">
                             прайс: 3500₽
                         </li>
-                        <li class="order-options-item">
-                            <button class="card__add" id="tb-w-add" onclick="addToCart(id)">в корзину</button>
-                        </li>
-                    </ul>
+                        <section>
+                            <form action="">
+                                <p class="qty">
+                                    <label for="qty">количество:</label>
+                                    <button class="qtyminus" aria-hidden="true">&minus;</button>
+                                    <input type="number" name="qty" id="qty" min="1" max="10" step="1" value="1">
+                                    <button class="qtyplus" aria-hidden="true">&plus;</button>
+                                </p>
+                            </form>
+                        </section>
+                        <input class="addtocart-button"type="submit" value="в корзину">
+                    </form>
                     <h3>Описание</h3>
                     <div class="item-description">
                         <p>
