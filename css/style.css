@@ -68,7 +68,7 @@ nav {
     font-size: 14px;
     font-family:'Courier New', Courier, monospace;
     display: grid;  
-    grid-template-columns: 1vw 1vw 1vw 1vw 1fr 1vw 1vw 1vw 1vw;
+    grid-template-columns: 2vw 2vw 2vw 2vw 1fr 2vw 2vw 2vw 2vw;
     grid-gap: 10px;
     border-bottom: 2px solid black;
     align-items: flex-start;
@@ -77,10 +77,11 @@ nav {
 .nav-item>.navigation-button, .nav-item>ul>li>.navigation-button {
     cursor: pointer;
     background: transparent;
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
     border: none;
-    color:#6F6F6F;
+    color: #6F6F6F;
+    height: 15px;
 }
 
 .navigation-button>img {
@@ -97,6 +98,7 @@ nav {
 
 .nav-item:hover {
     background-color: #000;
+    width: 15px;
     background-size: auto;
     color: #d4d4d4;
 }
@@ -263,8 +265,18 @@ ul {
         height: 90%;
     }
 
+    .item-select-form {
+        margin: 15px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+
     .addtocart-button {
         margin-top: 10px;
+        width: fit-content;
     }
 }
 

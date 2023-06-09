@@ -341,23 +341,13 @@
                             </select>
                         </div>
                         <li class="order-options-item">
-                            прайс: 3500₽
+                            прайс: 4500₽
                         </li>
-                        <section>
-                            <form action="">
-                                <p class="qty">
-                                    <label for="qty">количество:</label>
-                                    <button class="qtyminus" aria-hidden="true">&minus;</button>
-                                    <input type="number" name="qty" id="qty" min="1" max="10" step="1" value="1">
-                                    <button class="qtyplus" aria-hidden="true">&plus;</button>
-                                </p>
-                            </form>
-                        </section>
-                        <input class="addtocart-button"type="submit" value="в корзину">
+                            <button class="addtocart-button" disabled>солд</button>
                     </form>
                     <h3>Описание</h3>
                     <p>
-                        Размеры: M(2), L(2) / По замерам можете написать в лс
+                        Размеры: M(2), L(2) <br><br>
                     </p>                        
                     <p>
                         (От себя) До 170 см берём M. До 180 см берём L
@@ -485,7 +475,7 @@
                                 </p>
                             </form>
                         </section>
-                        <input class="addtocart-button" type="submit" id="tb-b-add" onclick="submitPurchaseForm(id)" value="Добавить в корзину">
+                        <input class="addtocart-button" type="submit" id="tb-b-add" onclick="submitPurchaseForm(id)" value="в корзину">
                     </form>
                     <h3>Описание</h3>
                     <div class="item-description">
@@ -664,25 +654,22 @@
                 <li>
                     <h2>тишскии вол.2</h2>
                     <p>чёрный/белый</p>
-                    <ul class="order-options">
-                        <li class="order-options-item">
-                            цвет:
+                    <form class="item-select-form">
+                        <div class="item-select-form-warpper">
+                            <label for="size">размер:</label>
+                            <select id="size" name="size">
+                                <option value="o-s">o-s</option>
+                            </select>
+                        </div>
+                        <div class="item-select-form-warpper">
+                            <label for="color">цвет:</label>
                             <select name="цвет" id="item-color">
-                                <option value="white">белый</option>
                                 <option value="black">чёрный</option>
-                              </select>
-                        </li>
-                        <li class="order-options-item">
-                            размер:
-                            <select name="размер" id="item-size">
-                                <option value="size-M">m</option>
-                                <option value="size-L">l</option>
-                              </select>
-                        </li>
-                        <li class="order-options-item">
-                            <button disabled>солд</button>
-                        </li>
-                    </ul>
+                                <option value="white">белый</option>
+                            </select>
+                        </div>
+                        <button class="addtocart-button" disabled>солд</button>
+                    </form>
                     <h3>Описание</h3>
                     <p>
                     </p>                        
@@ -757,26 +744,25 @@
                 <li>
                     <h2>тишски вол.1</h2>
                     <p>мульти</p>
-                    <ul class="order-options">
-                        <li class="order-options-item">
-                            цвет:
+                    <form class="item-select-form">
+                        <div class="item-select-form-warpper">
+                            <label for="size">размер:</label>
+                            <select id="size" name="size">
+                                <option value="o-s">o-s</option>
+                            </select>
+                        </div>
+                        <div class="item-select-form-warpper">
+                            <label for="color">цвет:</label>
                             <select name="цвет" id="item-color">
                                 <option value="beige">бежевый</option>
                                 <option value="black">чёрный</option>
                                 <option value="white">белый</option>
                                 <option value="brown">коричневый</option>
-                              </select>
-                        </li>
-                        <li class="order-options-item">
-                            размер:
-                            <select name="размер" id="item-size">
-                                <option value="os">o-s</option>
-                              </select>
-                        </li>
-                        <li class="order-options-item">
-                            <button disabled>солд</button>
-                        </li>
-                    </ul>
+                                <option value="long">белый(лонгслив)</option>
+                            </select>
+                        </div>
+                        <button class="addtocart-button" disabled>солд</button>
+                    </form>
                     <h3>Описание</h3>
                     <p>
                     </p>                        
