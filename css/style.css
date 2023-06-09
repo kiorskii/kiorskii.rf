@@ -184,9 +184,17 @@ ul {
         display: flex;
         justify-content: center;
         flex-direction: row;
-        gap: 18px;
+        gap: 5vw;
         padding: 15px;
         font-size: 18px;
+    }
+
+    .qty {
+        display: table-caption;
+    }
+
+    .item-select-form-warpper, .order-options-item {
+        display: grid;
     }
 }
 
@@ -480,3 +488,4 @@ img {
 .addtocart-button {
     margin-bottom: 10px;
 }
+
