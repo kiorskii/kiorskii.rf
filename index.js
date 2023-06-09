@@ -2,6 +2,30 @@
 var c = document.getElementById("canv");
 var ctx = c.getContext("2d");
 
+const price = 3500
+var cartArray = [
+    {
+        "color":"white",
+        0: {"size": "L",
+            "quantity":0}
+
+    },
+    {
+        "color":"white",
+        "size": "XL",
+        "quantity":0
+    },
+    {
+        "color":"black",
+        "size": "L",
+        "quantity":0
+    },
+    {
+        "color":"black",
+        "size": "XL",
+        "quantity":0
+    },    ]
+
 //making the canvas full screen
 c.height = window.innerHeight;
 c.width = window.innerWidth;
@@ -226,3 +250,91 @@ function deleteItemFromCart(id) {
         b.classList.remove("hiddenitem")
     }
 }
+
+var input = document.querySelector('#qty');
+var btnminus = document.querySelector('.qtyminus');
+var btnplus = document.querySelector('.qtyplus');
+
+if (input !== undefined && btnminus !== undefined && btnplus !== undefined && input !== null && btnminus !== null && btnplus !== null) {
+
+    var min = Number(input.getAttribute('min'));
+    var max = Number(input.getAttribute('max'));
+    var step = Number(input.getAttribute('step'));
+
+    function qtyminus(e) {
+        var current = Number(input.value);
+        var newval = (current - step);
+        if(newval < min) {
+            newval = min;
+        } else if(newval > max) {
+            newval = max;
+        }
+        input.value = Number(newval);
+        e.preventDefault();
+    }
+
+    function qtyplus(e) {
+        var current = Number(input.value);
+        var newval = (current + step);
+        if(newval > max) newval = max;
+        input.value = Number(newval);
+        e.preventDefault();
+    }
+
+    btnminus.addEventListener('click', qtyminus);
+    btnplus.addEventListener('click', qtyplus);
+
+} // End if test
+
+    var form = document.querySelector("form");
+
+    form.addEventListener('submit', function(event) {
+
+        var size = document.getElementById('size').value;
+        var quantity = document.getElementById('qty').value;
+
+        // Ваши действия с полученными значениями
+        console.log('Размер: ' + size);
+        console.log('Количество: ' + quantity);
+
+        // Здесь вы можете отправить данные на сервер для обработки и добавления в корзину
+        // Например, с помощью AJAX-запроса
+
+        event.preventDefault(); // Отменяем стандартное поведение формы (перезагрузку страницы)
+
+        // Очищаем форму после отправки данных
+        form.reset();
+    });
+
+
+function submitPurchaseForm(id) {
+    var size = document.getElementById('size').value;
+    var quantity = document.getElementById('qty').value;
+
+    switch (id === "tb-w-add") {
+        case cartArray
+    }
+
+    if (id === "tb-w-add") {
+        if (cartArray[0].attr.size === "0") {
+            cartArray[0].attr.size = size
+            cartArray[0].attr.quantity = quantity
+        } else {
+            cartArray[0].attr.size += size
+            cartArray[0].attr.quantity += quantity
+        }
+    } else if (id === "tb-b-add") {
+        if (cartArray[1].attr.size === "0") {
+            cartArray[1].attr.size = size
+            cartArray[1].attr.quantity = quantity
+        } else {
+            cartArray[1].attr.size += size
+            cartArray[1].attr.quantity += quantity
+        }
+
+    }
+
+    console.log(cartArray)
+    form.reset()
+}
+
