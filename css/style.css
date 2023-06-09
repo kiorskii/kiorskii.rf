@@ -1,0 +1,470 @@
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #282828;
+    border-end-end-radius: 30px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-end-end-radius: 30px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 700;
+}
+
+body {
+    background: black;
+}
+
+canvas {
+    position:fixed;
+    top:0;
+    left:0;
+}
+
+.maindiv {
+    z-index: 10;
+    width: 1100px;
+    height: 700px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    
+}
+
+.navigation {
+    width: 100%;
+    height: 35px;
+    background-color: #202020;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.desktop {
+    width: 100%;
+    height: 700px;
+    background-color: #282828;
+    border-radius: 0px 0px 20px 20px;
+}
+
+nav {
+    font-weight: bold;
+    padding: 10px;
+    font-size: 14px;
+    font-family:'Courier New', Courier, monospace;
+    display: grid;  
+    grid-template-columns: 12px 15px 15px 15px 1fr 15px;
+    grid-gap: 10px;
+    border-bottom: 2px solid black;
+    align-items: flex-start;
+}
+
+.nav-item>.navigation-button, .nav-item>ul>li>.navigation-button {
+    cursor: pointer;
+    background: transparent;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 700;
+    border: none;
+    color:#6F6F6F;
+}
+
+.navigation-button>img {
+    vertical-align: middle;
+}
+
+.mainhead {
+    justify-self: center;
+}
+
+.bag {
+    justify-self:end;
+}
+
+.nav-item:hover {
+    background-color: #000;
+    background-size: auto;
+    color: #d4d4d4;
+}
+
+.navigation-button:first-of-type:hover {
+    filter: invert(1);
+	background-color: #fff
+}
+
+#preloader {
+    background: #000 url(../img/preloaderskii.gif) no-repeat center center;
+    background-size: 100%;
+    border-radius: 0px 0px 20px 20px;
+    height: inherit;
+    position: inherit;
+    width: 1101px;
+    z-index: 9999;
+}
+
+#desktop-icons, .folder-content {
+    width: 100%;
+    height: 700px;
+    max-height: 100%;
+    display: grid;
+    justify-items: center;
+}
+
+#desktop-icons {
+    position: absolute;
+}
+
+#desktop-icons, .folder-content {
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(5,1fr);
+}
+
+ul {
+    list-style: none;
+}
+
+.desktop-item, .desktop-button {
+    color: #6F6F6F;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.desktop-button:active {
+    filter: invert(1);
+	background-color: rgb(58, 113, 59);
+}
+
+@media only screen and (max-width: 320px) {
+	:root {
+		--padding: 5px;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	#screen {
+		max-width: 1100px;
+		max-height: 700px;
+		min-width: 960px;
+		height: 100%;
+		display: block
+	}
+
+    .card-list-leftblock {
+        width: 550px;
+    }
+
+    li>.slider-preview-item {
+        overflow-x: scroll;
+        margin: 0 15px;
+    }
+}
+
+@media only screen and (max-width: 999px) {
+	#screen {
+		height: 90%;
+		width: 90%;
+	}
+
+    #desktop-icons>.desktop-button>img {
+		width: 50px !important;
+        height: 50px !important;
+	}
+
+    .desktop-button {
+        font-size: 11pt;
+    }
+
+    #desktop-icons, .folder-content {
+        grid-template-columns: repeat(3,1fr) !important;
+        grid-template-rows: unset !important;
+        grid-auto-rows: 35%;
+        grid-auto-flow: row;
+        overflow-y: scroll;
+    }    
+
+    ::-webkit-scrollbar {
+        width: 0;
+    }
+
+    .clothes>.desktop-item>.desktop-button>span, .archive-clothes-list>.desktop-item>.desktop-button>span {
+        font-size: 10pt !important; 
+    }
+
+    .clothes>.desktop-item>.desktop-button>p, .archive-clothes-list>.desktop-item>.desktop-button>p {
+        font-size: 8pt !important; 
+    }
+
+    .clothes, .archive-clothes-list {
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(3,1fr);
+    }   
+
+    #preloader {
+        width: 91vw;
+    }
+
+    div .card-list {
+        display: block;
+        height: 98%;
+    }
+
+    li>.slider-preview-item {
+        overflow-x: scroll;
+        gap: 10px;
+        margin: 10px;
+    }
+    
+    .slider-preview-item>a>img {
+        width: 70px;
+        height: 90px;
+    }
+
+    .slider-preview-item a:not(.active)::before {
+        height: 90px !important;
+    }
+
+    .card-list>li>img {
+        height: 90% !important;
+        width: 90% !important;
+        max-height: 450px;
+        object-fit: cover;
+    }
+
+    .desktop {
+        height: 90%;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+    #desktop-icons, .folder-content {
+        grid-template-columns: repeat(2,1fr) !important;
+        grid-template-rows: unset !important;
+        grid-auto-rows: 45%;
+        grid-auto-flow: row;
+        overflow-y: scroll;
+        height: 99%;
+    }    
+
+    .mainDesktop {
+        height:inherit !important;
+    }
+
+    .desktop {
+        height: 80%;
+    }
+
+    #preloader {
+        height: 81%;
+    }
+
+    .order-options {
+        gap: 10px !important; 
+    }
+}
+
+
+
+.clothes, .archive-clothes-list {
+    grid-template-columns: repeat(5,1fr) !important;
+    grid-template-rows: unset !important;
+    grid-auto-rows: 35%;
+    grid-auto-flow: row;
+    overflow-y: scroll;
+}
+
+.clothes>.desktop-item>.desktop-button>p, .archive-clothes-list>.desktop-item>.desktop-button>p {
+    position: relative;
+    bottom: 7px;
+}
+
+.visible {
+    position: absolute;
+    z-index: 11 !important;
+    width: inherit;
+    height: inherit;
+    background-color: inherit;
+    margin: inherit;
+    border-radius: inherit;
+}
+
+.hidden {
+    position: absolute;
+    z-index: -10 !important;
+    width: inherit;
+    height: inherit;
+    background-color: inherit;
+    border-radius: inherit;
+}
+
+.clothes>.desktop-item>.desktop-button>span, .archive-clothes-list>.desktop-item>.desktop-button>span {
+    font-size: 14pt;
+}
+
+.card-list {
+    display: grid;
+    height: inherit;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas:
+    'cardheader cardheader'
+    'cardmain cardsidebar';
+    max-height: 98%;
+    text-align: center;
+    align-items: flex-start;
+    overflow-y: scroll;
+    padding: 0;
+}
+
+.card-list>li>img {
+    height: 450px;
+    width: 360px;
+    object-fit: cover;
+}
+
+.grid > :nth-child(1) {
+    grid-area: cardheader;
+
+}
+
+.grid > :nth-child(2) {
+    grid-area: cardmain;
+}
+
+.grid > :nth-child(3) {
+    grid-area: cardsidebar;
+}
+
+.slider-preview-item {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    position: relative;   
+    margin-top: 5px;
+    align-items: center;
+}
+  
+.slider-preview-item img {
+    display: block;
+}
+
+.slider-preview-item a:not(.active)::before {
+    content: '';
+    position: absolute;
+    height: 110px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.order-options {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+    padding: 15px;
+    font-size: 18px;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  padding: 0 15px;
+}
+
+.TempUnavaliable, .txtfolder {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    overflow-y: scroll;
+}
+
+.TempUnavaliable>button, .txtfolder>button {
+    display: block;
+    margin-top: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: #6F6F6F;
+    font-size: 16px;
+}
+
+.simple-link {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: #6F6F6F;
+}
+
+.TempUnavaliable>p, .txtfolder>p, .txtfolder>h3 {
+    padding: 0 15px;
+    text-align: center;
+    color: #6F6F6F;
+    padding-top: 1vh;
+}
+
+li {
+    color: #6F6F6F;
+}
+
+.card-list>li>p {
+    padding: 10px;
+    color: #6F6F6F;
+}
+
+img {
+    object-fit: cover;
+}
+
+/* cart */
+
+.card-in-cart {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+.cart-item-delete {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.hiddenitem {
+    position: absolute;
+    z-index: -10 !important;
+    opacity: 0;
+}
+
+.total-price-block {
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+    font-size: 18px;
+    margin-right: 10px;
+}

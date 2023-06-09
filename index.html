@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="/img/cross.png" type="image/png">
+    <title>someskiishit.app</title>
+</head>
+<body>
+    <canvas id='canv'></canvas>
+    <div id="screen" class="maindiv">
+    <div class="navigation">
+        <nav>
+            <div class="nav-item">
+                <button class="navigation-button" onclick="window.open('','_self').close()">
+                    <img src="img/close.png" width="10px" height="10px">
+                </button>
+            </div>
+            <div class="nav-item">
+                <button class="navigation-button" onclick="window.open('?');">
+                    <img src="img/cross.png" width="15px" height="15px">
+                </button>
+            </div>
+            <div class="nav-item">
+                <button class="navigation-button" onclick="window.open('?','_self');">
+                    <img src="img/clock.png" width="15px" height="15px">
+                </button>
+            </div>
+            <div class="nav-item">
+                <button class="navigation-button back hidden" onclick="backFunction()">
+                    <img src="img/arrow.png" width="15px" height="15px">
+                </button>
+            </div>
+            <div class="nav-item mainhead">
+                <button class="navigation-button" onclick="homeFunction()">
+                    someskiishit.app
+                </button>
+            </div>
+            <div class="nav-item bag">
+                <button class="navigation-button" onclick="openCart()">
+                    <img src="img/shopping-bag.png" width="15px" height="15px">
+                </button>
+            </div>
+        </nav>
+    </div>
+    <div id="preloader"></div>
+    <div class="desktop">
+        <ul id="desktop-icons" class="mainDesktop">
+            <li class="desktop-item">
+                <button class="desktop-button itemsbutton">
+                <img src="img/folder.png" width="50px" height="50px">
+                <span>шмотски</span>
+                </button>
+            </li>
+            <li class="desktop-item">
+                <button class="desktop-button djbutton">
+                <img src="img/folder.png" width="50px" height="50px">
+                <span>djay</span>
+                </button>
+            </li>
+            <li class="desktop-item">
+                <button class="desktop-button picsbutton">
+                <img src="img/folder.png" width="50px" height="50px">
+                <span>моменты</span>
+                </button>
+            </li>
+            <li class="desktop-item">
+                <button class="desktop-button vidsbutton">
+                <img src="img/folder.png" width="50px" height="50px">
+                <span>видики</span>
+                </button>
+            </li>
+            <li class="desktop-item txt">
+                <button class="desktop-button readmebutton">
+                    <img src="img/document.png" width="50px" height="50px">
+                <span>
+                    readme.txt
+                </span>
+                </button> 
+            </li>
+            <li class="desktop-item txt">
+                <button class="desktop-button shippingbutton">
+                    <img src="img/document.png" width="50px" height="50px">
+                <span>
+                    доставка/возврат.txt
+                </span>
+                </button> 
+            </li>
+        </ul>
+        <div class="items folder hidden">
+            <ul id="desktop-icons" class="clothes">
+                <li class="desktop-item">
+                    <button class="desktop-button item" onclick="cardItemFunction(id); cardFunction();" id="tb-w">
+                    <img src="img/items/tb-w/s/tb-w-prev.jpg" width="100px" height="125px">
+                    <span>футба би ски</span>
+                    <p>белая</p>
+                    </button>
+                </li>
+                <li class="desktop-item">
+                    <button class="desktop-button item" onclick="cardItemFunction(id); cardFunction();" id="tb-b">
+                    <img src="img/items/tb-b/s/tb-b-prev.jpg" width="100px" height="125px">
+                    <span>футба би ски</span>
+                    <p>чёрная</p>
+                    </button>
+                </li>
+                <li class="desktop-item archive-clothes folder">
+                    <button class="desktop-button archivebutton">
+                    <img src="img/folder.png" width="50px" height="50px">
+                    <span>архив</span>
+                    </button>
+                </li>
+            </ul>   
+        </div>
+        <div class="archive folder hidden">
+            <ul id="desktop-icons" class="archive-clothes-list">
+                <li class="desktop-item">
+                    <button class="desktop-button item" onclick="cardItemFunction(id); cardFunction();" id="hk-r">
+                    <img src="img/items/hk-r/s/hk-r-prev.png" width="100px" height="120px">
+                    <span>зип худи кёрски</span>
+                    <p>красный</p>
+                    </button>
+                </li>
+                <li class="desktop-item">
+                    <button class="desktop-button item" onclick="cardItemFunction(id); cardFunction();" id="tkv2">
+                    <img src="img/items/tkv2/s/tkv2b-prev.png" width="100px" height="120px">
+                    <span>тишски вол.2</span>
+                    <p>чёрный</p>
+                    </button>
+                </li>
+                <li class="desktop-item">
+                    <button class="desktop-button item" onclick="cardItemFunction(id); cardFunction();" id="tkv2">
+                    <img src="img/items/tkv2/s/tkv2w-prev.png" width="100px" height="120px">
+                    <span>тишски вол.2</span>
+                    <p>белый</p>
+                    </button>
+                </li>
+                <li class="desktop-item">
+                    <button class="desktop-button item" onclick="cardItemFunction(id); cardFunction();" id="tkv1">
+                    <img src="img/items/tkv1/allprevs/4.png" width="100px" height="120px">
+                    <span>лонг</span>
+                    <p>белый</p>
+                    </button>
+                </li>
+                <li class="desktop-item">
+                    <button class="desktop-button item" onclick="cardItemFunction(id); cardFunction();" id="tkv1">
+                    <img src="img/items/tkv1/allprevs/5.png" width="100px" height="120px">
+                    <span>тишски вол.1</span>
+                    <p>бежевый</p>
+                    </button>
+                </li>
+                <li class="desktop-item">
+                    <button class="desktop-button item" onclick="cardItemFunction(id); cardFunction();" id="tkv1">
+                    <img src="img/items/tkv1/allprevs/6.png" width="100px" height="120px">
+                    <span>тишски вол.1</span>
+                    <p>бежевый</p>
+                    </button>
+                </li>
+                <li class="desktop-item">
+                    <button class="desktop-button item" onclick="cardItemFunction(id); cardFunction();" id="tkv1">
+                    <img src="img/items/tkv1/allprevs/7.png" width="100px" height="120px">
+                    <span>тишски вол.1</span>
+                    <p>коричневый</p>
+                    </button>
+                </li>
+                <li class="desktop-item">
+                    <button class="desktop-button item" onclick="cardItemFunction(id); cardFunction();" id="tkv1">
+                    <img src="img/items/tkv1/allprevs/8.png" width="100px" height="120px">
+                    <span>тишски вол.1</span>
+                    <p>бежевый</p>
+                    </button>
+                </li>
+                <li class="desktop-item">
+                    <button class="desktop-button item" onclick="cardItemFunction(id); cardFunction();" id="tkv1">
+                    <img src="img/items/tkv1/allprevs/9.png" width="100px" height="120px">
+                    <span>тишски вол.1</span>
+                    <p>бежевый</p>
+                    </button>
+                </li>
+                <li class="desktop-item">
+                    <button class="desktop-button item" onclick="cardItemFunction(id); cardFunction();" id="tkv1">
+                    <img src="img/items/tkv1/allprevs/10.png" width="100px" height="120px">
+                    <span>тишски вол.1</span>
+                    <p>белый</p>
+                    </button>
+                </li>
+                <li class="desktop-item">
+                    <button class="desktop-button item" onclick="cardItemFunction(id); cardFunction();" id="tkv1">
+                    <img src="img/items/tkv1/allprevs/11.png" width="100px" height="120px">
+                    <span>тишски вол.1</span>
+                    <p>чёрный</p>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="dj folder hidden">
+            <div class="TempUnavaliable">
+                <p>
+                    ┬┴┬┴┤(･_├┬┴┬┴ <br><br>
+                    на данный момент доделываем раздел. заходи позже
+                </p>
+                <button class="navigation-button" onclick="backFunction()">
+                    <-- назад <--
+                </button>
+            </div>
+        </div>
+        <div class="pics folder hidden">
+            <div class="TempUnavaliable">
+                <p>
+                    ┬┴┬┴┤(･_├┬┴┬┴ <br><br>
+                    на данный момент доделываем раздел. заходи позже
+                </p>
+                <button class="navigation-button" onclick="backFunction()">
+                    <-- назад <--
+                </button>
+            </div>
+        </div>
+        <div class="vids folder hidden">
+            <div class="TempUnavaliable">
+                <p>
+                    ┬┴┬┴┤(･_├┬┴┬┴ <br><br>
+                    на данный момент доделываем раздел. заходи позже
+                </p>
+                <button class="navigation-button" onclick="backFunction()">
+                    <-- назад <--
+                </button>
+            </div>
+        </div>
+        <div class="readme folder hidden">
+            <div class="txtfolder">
+                <h3>салют! мы кёрски</h3>
+                <p>
+                    <br>
+                    даже не знаю как описать подробней, я бы сказал, что кёрски это движуха, <br>
+                    причём к кёрски относятся много людей, а не только те кто знаком с нами).<br>
+                    быть скии это как стиль жизни. В общем, присоединяйся!)<br>
+                    делаем шмотки, снимаем лайфстайл видики, иногда выходим поиграть сеты<br><br>
+                    полезные ссылки:<br>
+                    tg: <a class="simple-link" target="_blank" href="https://t.me/kiorskii">@kiorskii</a> - вся движуха<br>
+                    ig: <a class="simple-link" target="_blank" href="https://instagram.com/kiorskii">@kiorskii</a>- лайфстайл<br>
+                    vk: <a class="simple-link" target="_blank" href="https://vk.com/kiorskii">@kiorskii</a> - шмотски<br>
+                    yt: <a class="simple-link" target="_blank" href="https://www.youtube.com/@someskiishit1447/featured">@someskiishit</a> - видики с сэтов<br>
+                    плэйлисты: 
+                    <a class="simple-link" target="_blank" href="https://open.spotify.com/playlist/1zqnvMMpfwIlxczL0W9ELR?si=57166e534fee4d39">spotify</a>
+                     /
+                    <a class="simple-link" target="_blank" href="https://music.yandex.ru/users/risinvlad/playlists/1116">я.музло</a>
+                     /
+                    <a class="simple-link" target="_blank" href="https://music.yandex.ru/users/esneson/playlists">я.музло(электро)</a>
+                    <br><br><br>
+                    Важно! Сайт ещё находится на стадии разработки, <br>
+                    если ты столкнулся с проблемой/у тебя есть идеи как сделать<br>
+                     <a class="simple-link" target="_blank" href="https://youtu.be/wfryx_neGgs">круче, лучше, выше, камон эврибади пуче хэнз ап</a>,<br>
+                    то напиши нам в телегу <a class="simple-link" target="_blank" href="https://t.me/kiorroik">@kiorroik</a>
+                </p>
+                <button class="navigation-button" onclick="backFunction()">
+                    <-- мясо <--
+                </button>
+            </div>            
+        </div>
+        <div class="shipping folder hidden">
+            <div class="txtfolder">
+                <h3>Доставка и возврат</h3>
+                <h3>Доставка:</h3>
+                <p>
+                    <br>
+                    ⁃ Курьерская доставка в пределах Екатеринбурга является бесплатной и согласуется после подтверждения заказа.<br>
+                    ⁃ Доставка по России осуществляется ТК на выбор покупателя СДЭК/Почта России. Отправка происходит в течении 3 рабочих дней после подтверждения заказа.<br>
+                    ⁃ Международная доставка согласуется предварительно перед заказом.<br>
+                    ⁃ Самовывоз осуществляется по согласованию, после подтверждения заказа.<br><br>
+                </p>
+                <h3>Возврат:</h3>
+                <p>
+                    <br>
+                    Возврат осуществляется в нескольких случаях: <br>
+                    ⁃ Брак. В данном случае покупатель должен отдать/отправить(за наш счет) вещь обратно, после этого осуществляется возврат денежных средств.<br>
+                    ⁃ Если прислали не тот товар. Возможна отправка необходимой вещи, либо возврат денежных средств.<br><br>
+                    <br>
+                    Обычно процесс возврата денежных средств осуществляется в течении 1-14 рабочих дней. <br><br>
+
+                    Поддержка: kiorskii@gmail.com / tg: <a class="simple-link" target="_blank" href="https://t.me/kiorskii">@kiorroik</a><br><br>
+                </p>
+                <button class="navigation-button" onclick="backFunction()">
+                    <-- назад <--
+                </button>
+                <br>
+                <br>
+            </div>            
+        </div>
+        <div class="card folder hidden" id="hk-rF">
+            <ul class="card-list grid">
+                <li>
+                    <h1>кёрски(архив)</h1>
+                </li>
+                <li class="card-list-leftblock">
+                    <img class="main-image" src="img/items/hk-r/1.jpg"></img>
+                    <ul class="slider-preview-item">
+                        <li class="slider-preview-item">
+                            <a class="active" href="img/items/hk-r/1.jpg" onclick="cardsss()">
+                                <img src="img/items/hk-r/s/1.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/hk-r/2.jpg" onclick="cardsss()">
+                                <img src="img/items/hk-r/s/2.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/hk-r/3.jpg" onclick="cardsss()">
+                                <img src="img/items/hk-r/s/3.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/hk-r/4.jpg" onclick="cardsss()">
+                                <img src="img/items/hk-r/s/4.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/hk-r/5.jpg" onclick="cardsss()">
+                                <img src="img/items/hk-r/s/5.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <h2>зип худи кёрски</h2>
+                    <p>красный</p>
+                    <ul class="order-options">
+                        <li class="order-options-item">
+                            цвет:
+                            <select name="цвет" id="item-color">
+                                <option value="red">красный</option>
+                              </select>
+                        </li>
+                        <li class="order-options-item">
+                            размер:
+                            <select name="размер" id="item-size">
+                                <option value="size-M">m</option>
+                                <option value="size-L">l</option>
+                              </select>
+                        </li>
+                        <li class="order-options-item">
+                            <button disabled>солд</button>
+                        </li>
+                    </ul>
+                    <h3>Описание</h3>
+                    <p>
+                        Размеры: M(2), L(2) / По замерам можете написать в лс
+                    </p>                        
+                    <p>
+                        (От себя) До 170 см берём M. До 180 см берём L
+                        У меня рост 175 и M сидит лёгким(!) оверсайзом, а XL мешковато/круто. Если есть вопросы по соответствию размера напишите в личку, все обсудим.
+                    </p>
+                    <p>
+                        Ткань/состав: Футер 3 нитка пенье / 80% хб 20% пэ начёс, 100% хб петля
+                    </p>
+                    <p>                        
+                        -В комплекте:
+                        1. Все(почти) поколения стикеров кёрски
+                        2. Моя любовь!</p>    
+                    <p>
+                        Доставка/самовывоз:
+                        Самовывоз Хохрякова 63
+                        Бесплатная курьерская доставка в пределах екб
+                        Почта России 200₽
+                    </p>
+                    <p>
+                        Моменты:
+                        -Бланки - худи с начёсом, ткань качества пенье, оверсайз крой
+                        -Принт - ручная шелкография(могут быть незначительные отличия в принтах, делаем всё вручную)
+                        -Вышивка кёрски на капюшоне    
+                    </p>
+                    <p>
+                        Уход: По возможности ручная стирка. В крайнем случае деликатная стирка, 30 градусов, без использования тяжелых средств от пятен(принт может выцвести)
+                    </p>
+                    <p>
+                        Спасибо за поддержку! Все деньги пойдут на создание других крутых скии шмоток 😎🤞🙌
+                    </p>                        
+                </li>
+            </ul>
+        </div>
+        <div class="card folder hidden" id="tb-bF">
+            <ul class="card-list grid">
+                <li>
+                    <h1>кёрски</h1>
+                </li>
+                <li class="card-list-leftblock">
+                    <img class="main-image" src="img/items/tb-b/1.jpg"></img>
+                    <ul class="slider-preview-item">
+                        <li class="slider-preview-item">
+                            <a class="active card__image" href="img/items/tb-b/1.jpg">
+                                <img src="img/items/tb-b/s/1.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-b/2.jpg">
+                                <img src="img/items/tb-b/s/2.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-b/3.jpg">
+                                <img src="img/items/tb-b/s/3.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-b/4.jpg">
+                                <img src="img/items/tb-b/s/4.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-b/5.jpg">
+                                <img src="img/items/tb-b/s/5.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-b/6.jpg">
+                                <img src="img/items/tb-b/s/6.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-b/7.jpg">
+                                <img src="img/items/tb-b/s/7.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-b/8.jpg">
+                                <img src="img/items/tb-b/s/8.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-b/9.jpg">
+                                <img src="img/items/tb-b/s/9.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-b/10el.jpg">
+                                <img src="img/items/tb-b/s/10el.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-b/11el.jpg">
+                                <img src="img/items/tb-b/s/11el.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-b/12el.jpg">
+                                <img src="img/items/tb-b/s/12el.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h2 class="card__title">футба би ски</h2>
+                    <ul class="order-options">
+                        <li class="order-options-item">
+                            цвет:
+                            <select name="цвет" id="item-color">
+                                <option value="black">чёрный</option>
+                              </select>
+                        </li>
+                        <li class="order-options-item">
+                            размер:
+                            <select name="размер" id="item-size">
+                                <option value="size-M">l</option>
+                                <option value="size-L">xl</option>
+                              </select>
+                        </li>
+                        <li class="order-options-item card__price card__price--common">
+                            прайс: 3500₽
+                        </li>
+                        <li class="order-options-item">
+                            <button class="card__add" id="tb-b-add" onclick="addToCart(id)">в корзину</button>
+                        </li>
+                    </ul>
+                    <h3>Описание</h3>
+                    <div class="item-description">
+                        <p>
+                            <br>
+                            Самое лучшее поколение тишек кёрски. Качество и посадка мясо<br><br>
+                        </p>
+                        <p>
+                            Рекомендации по размеру: <br>
+                            L - рост до 180см,<br>
+                            XL - рост 180+см<br>
+                            При самовывозе есть возможность примерки <br><br>
+                        </p> 
+                        <p>  
+                            Ткань/Состав: 95% Хлопок, 5% Лайкра<br>
+                            Качество: пенье<br>
+                            Крой: оверсайз<br>
+                            Плотность: 240 г/м<br>
+                            Принт: шелкография<br>
+                            Уход: стирка не выше 40 градусов, желательно деликатный режим<br><br>
+                        </p>
+                    </div>                     
+                </li>
+            </ul>
+        </div>
+        <div class="card folder hidden" id="tb-wF">
+            <ul class="card-list grid">
+                <li>
+                    <h1>кёрски</h1>
+                </li>
+                <li class="card-list-leftblock">
+                    <img class="main-image" src="img/items/tb-w/1.jpg"></img>
+                    <ul class="slider-preview-item">
+                        <li class="slider-preview-item">
+                            <a class="active" href="img/items/tb-w/1.jpg">
+                                <img src="img/items/tb-w/s/1.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-w/2.jpg">
+                                <img src="img/items/tb-w/s/2.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-w/3.jpg">
+                                <img src="img/items/tb-w/s/3.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-w/4.jpg">
+                                <img src="img/items/tb-w/s/4.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-w/5.jpg">
+                                <img src="img/items/tb-w/s/5.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-w/6.jpg">
+                                <img src="img/items/tb-w/s/6.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-w/7el.jpg">
+                                <img src="img/items/tb-w/s/7el.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-w/8el.jpg">
+                                <img src="img/items/tb-w/s/8el.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-w/9el.jpg">
+                                <img src="img/items/tb-w/s/9el.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tb-w/10el.jpg">
+                                <img src="img/items/tb-w/s/10el.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h2>футба би ски</h2>
+                    <ul class="order-options">
+                        <li class="order-options-item">
+                            цвет:
+                            <select name="цвет" id="item-color">
+                                <option value="white">белый</option>
+                              </select>
+                        </li>
+                        <li class="order-options-item">
+                            размер:
+                            <select name="размер" id="item-size">
+                                <option value="size-M">l</option>
+                                <option value="size-L">xl</option>
+                              </select>
+                        </li>
+                        <li class="order-options-item">
+                            прайс: 3500₽
+                        </li>
+                        <li class="order-options-item">
+                            <button class="card__add" id="tb-w-add" onclick="addToCart(id)">в корзину</button>
+                        </li>
+                    </ul>
+                    <h3>Описание</h3>
+                    <div class="item-description">
+                        <p>
+                            <br>
+                            Самое лучшее поколение тишек кёрски. Качество и посадка мясо<br><br>
+                        </p>
+                        <p>
+                            Рекомендации по размеру: <br>
+                            L - рост до 180см,<br>
+                            XL - рост 180+см<br>
+                            При самовывозе есть возможность примерки <br><br>
+                        </p> 
+                        <p>  
+                            Ткань/Состав: 95% Хлопок, 5% Лайкра<br>
+                            Качество: пенье<br>
+                            Крой: оверсайз<br>
+                            Плотность: 240 г/м<br>
+                            Принт: шелкография<br>
+                            Уход: стирка не выше 40 градусов, желательно деликатный режим<br><br>
+                        </p>
+                    </div>                        
+                </li>
+            </ul>
+        </div>
+        <div class="card folder hidden" id="tkv2F">
+            <ul class="card-list grid">
+                <li>
+                    <h1>кёрски(архив)</h1>
+                </li>
+                <li class="card-list-leftblock">
+                    <img class="main-image" src="img/items/tkv2/1.jpg"></img>
+                    <ul class="slider-preview-item">
+                        <li class="slider-preview-item">
+                            <a class="active" href="img/items/tkv2/1.jpg">
+                                <img src="img/items/tkv2/s/1.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tkv2/2.jpg">
+                                <img src="img/items/tkv2/s/2.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tkv2/3.jpg">
+                                <img src="img/items/tkv2/s/3.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tkv2/4.jpg">
+                                <img src="img/items/tkv2/s/4.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tkv2/5.jpg">
+                                <img src="img/items/tkv2/s/5.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tkv2/6.jpg">
+                                <img src="img/items/tkv2/s/6.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h2>тишскии вол.2</h2>
+                    <p>чёрный/белый</p>
+                    <ul class="order-options">
+                        <li class="order-options-item">
+                            цвет:
+                            <select name="цвет" id="item-color">
+                                <option value="white">белый</option>
+                                <option value="black">чёрный</option>
+                              </select>
+                        </li>
+                        <li class="order-options-item">
+                            размер:
+                            <select name="размер" id="item-size">
+                                <option value="size-M">m</option>
+                                <option value="size-L">l</option>
+                              </select>
+                        </li>
+                        <li class="order-options-item">
+                            <button disabled>солд</button>
+                        </li>
+                    </ul>
+                    <h3>Описание</h3>
+                    <p>
+                    </p>                        
+                    <p>
+
+                    </p>
+                    <p>
+
+                    </p>
+                    <p>                        
+
+                        <p>
+
+                    </p>
+                    <p>
+
+                    </p>
+                    <p>
+
+                    </p>
+                    <p>
+
+                    </p>                        
+                </li>
+            </ul>
+        </div>
+        <div class="card folder hidden" id="tkv1F">
+            <ul class="card-list grid">
+                <li>
+                    <h1>кёрски(архив)</h1>
+                </li>
+                <li class="card-list-leftblock">
+                    <img class="main-image" src="img/items/tkv1/1.jpg"></img>
+                    <ul class="slider-preview-item">
+                        <li class="slider-preview-item">
+                            <a class="active" href="img/items/tkv1/1.jpg">
+                                <img src="img/items/tkv1/s/1.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tkv1/2.jpg">
+                                <img src="img/items/tkv1/s/2.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tkv1/3.jpg">
+                                <img src="img/items/tkv1/s/3.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tkv1/4.jpg">
+                                <img src="img/items/tkv1/s/4.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tkv1/5.jpg">
+                                <img src="img/items/tkv1/s/5.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tkv1/6.jpg">
+                                <img src="img/items/tkv1/s/6.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                        <li class="slider-preview-item">
+                            <a href="img/items/tkv1/7.jpg">
+                                <img src="img/items/tkv1/s/7.jpg" width="85" height="110">
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h2>тишски вол.1</h2>
+                    <p>мульти</p>
+                    <ul class="order-options">
+                        <li class="order-options-item">
+                            цвет:
+                            <select name="цвет" id="item-color">
+                                <option value="beige">бежевый</option>
+                                <option value="black">чёрный</option>
+                                <option value="white">белый</option>
+                                <option value="brown">коричневый</option>
+                              </select>
+                        </li>
+                        <li class="order-options-item">
+                            размер:
+                            <select name="размер" id="item-size">
+                                <option value="os">o-s</option>
+                              </select>
+                        </li>
+                        <li class="order-options-item">
+                            <button disabled>солд</button>
+                        </li>
+                    </ul>
+                    <h3>Описание</h3>
+                    <p>
+                    </p>                        
+                    <p>
+
+                    </p>
+                    <p>
+
+                    </p>
+                    <p>                        
+
+                        <p>
+
+                    </p>
+                    <p>
+
+                    </p>
+                    <p>
+
+                    </p>
+                    <p>
+
+                    </p>                        
+                </li>
+            </ul>
+        </div>
+        <div class="card folder cart hidden">
+            <ul class="card-list grid">
+                <li>
+                    <h1>оформление заказа</h1>
+                </li>
+                <li class="card-list-leftblock">
+                    <ul>
+                        <li>
+                            <div class="card-in-cart empty visibleitem">
+                                Корзина пуста
+                            </div>
+                        </li>
+                        <li>
+                            <div id="tb-b-added_size-M" class="card-in-cart hiddenitem">
+                                <img class="cart-item-img" src="img/items/tb-b/s/tb-b-prev.jpg" height="150px" width="120px">
+                                <div class="card-item-info">
+                                <a class="cart-item-name">футба би ски (чёрная)</a>
+                                <p class="cart-item-size">l</p>
+                                <p ><span class="cart-item-price">3500</span>₽</p>
+                                </div>
+                                <button class="cart-item-delete" id="item_1" onclick="deleteItemFromCart(id)"><img src="img/close.png" height="15px" width="15px"></button>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="tb-b-added_size-L" class="card-in-cart hiddenitem">
+                                <img class="cart-item-img" src="img/items/tb-b/s/tb-b-prev.jpg" height="150px" width="120px">
+                                <div class="card-item-info">
+                                <a class="cart-item-name">футба би ски (чёрная)</a>
+                                <p class="cart-item-size">xl</p>
+                                <p ><span class="cart-item-price">3500</span>₽</p>
+                                </div>
+                                <button class="cart-item-delete" id="item_2" onclick="deleteItemFromCart(id)"><img src="img/close.png" height="15px" width="15px"></button>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="tb-w-added_size-M" class="card-in-cart hiddenitem">
+                                <img class="cart-item-img" src="img/items/tb-w/s/tb-w-prev.jpg" height="150px" width="120px">
+                                <div class="card-item-info">
+                                <a class="cart-item-name">футба би ски (белая)</a>
+                                <p class="cart-item-size">l</p>
+                                <p><span class="cart-item-price">3500</span>₽</p>
+                                </div>
+                                <button class="cart-item-delete" id="item_3" onclick="deleteItemFromCart(id)"><img src="img/close.png" height="15px" width="15px"></button>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="tb-w-added_size-L" class="card-in-cart hiddenitem">
+                                <img class="cart-item-img" src="img/items/tb-w/s/tb-w-prev.jpg" height="150px" width="120px">
+                                <div class="card-item-info">
+                                <a class="cart-item-name">футба би ски (белая)</a>
+                                <p class="cart-item-size">xl</p>
+                                <p><span class="cart-item-price">3500</span>₽</p>
+                                </div>
+                                <button class="cart-item-delete" id="item_4" onclick="deleteItemFromCart(id)"><img src="img/close.png" height="15px" width="15px"></button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="total-price-block">
+                                Итого: <span class="total-price">0</span>₽
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="order-form">
+                        <form>
+                            
+                        </form>
+                    </div>                      
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
