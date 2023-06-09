@@ -343,7 +343,7 @@
                         <li class="order-options-item">
                             прайс: 4500₽
                         </li>
-                            <button class="addtocart-button" disabled>солд</button>
+                        <button class="addtocart-button" disabled>солд</button>
                     </form>
                     <h3>Описание</h3>
                     <p>
@@ -469,9 +469,9 @@
                             <form action="">
                                 <p class="qty">
                                     <label for="qty">количество:</label>
-                                    <button class="qtyminus" aria-hidden="true">&minus;</button>
+                                    <button class="qtyminus" onclick="GetQtyMinis()" aria-hidden="true">&minus;</button>
                                     <input type="number" name="qty" id="qty" min="1" max="10" step="1" value="1">
-                                    <button class="qtyplus" aria-hidden="true">&plus;</button>
+                                    <button class="qtyminus" onclick="GetQtyPlus()" aria-hidden="true">&plus;</button>
                                 </p>
                             </form>
                         </section>
@@ -579,9 +579,9 @@
                             <form action="">
                                 <p class="qty">
                                     <label for="qty">количество:</label>
-                                    <button class="qtyminus" aria-hidden="true">&minus;</button>
+                                    <button class="qtyminus" onclick="GetQtyMinis()" aria-hidden="true">&minus;</button>
                                     <input type="number" name="qty" id="qty" min="1" max="10" step="1" value="1">
-                                    <button class="qtyplus" aria-hidden="true">&plus;</button>
+                                    <button class="qtyminus" onclick="GetQtyPlus()" aria-hidden="true">&plus;</button>
                                 </p>
                             </form>
                         </section>
@@ -663,7 +663,7 @@
                         </div>
                         <div class="item-select-form-warpper">
                             <label for="color">цвет:</label>
-                            <select name="цвет" id="item-color">
+                            <select name="цвет" id="color">
                                 <option value="black">чёрный</option>
                                 <option value="white">белый</option>
                             </select>

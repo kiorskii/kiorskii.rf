@@ -6,25 +6,29 @@ const price = 3500
 var cartArray = [
     {
         "color":"white",
-        0: {"size": "L",
-            "quantity":0}
+        0: {
+            "size": "L",
+            "quantity":0
+        },
+        1: {
+            "size": "XL",
+            "quantity":0
+        }
 
     },
     {
-        "color":"white",
-        "size": "XL",
-        "quantity":0
-    },
-    {
         "color":"black",
-        "size": "L",
-        "quantity":0
-    },
-    {
-        "color":"black",
-        "size": "XL",
-        "quantity":0
-    },    ]
+        0: {
+            "size": "L",
+            "quantity":0
+        },
+        1: {
+            "size": "XL",
+            "quantity":0
+        }
+
+    } ]
+
 
 //making the canvas full screen
 c.height = window.innerHeight;
@@ -201,7 +205,6 @@ activeImage.onclick = function (evt) {
 };    
 }
 }
-
 // cartOpen
 
 function openCart() {
@@ -220,17 +223,6 @@ function openCart() {
     totalPrice.innerHTML=finalPrice
 }
 
-// cart
-
-function addToCart(id) {
-    let a=document.querySelector(".card.folder.visible>ul>li>.order-options>li>#item-size").value
-    let cartItemAdd = document.getElementById(id+"ed_"+a)
-    cartItemAdd.classList.remove("hiddenitem")
-    cartItemAdd.classList.add("visibleitem")
-    let b=document.querySelector(".empty")
-    b.classList.remove("visibleitem")
-    b.classList.add("hiddenitem")
-}
 
 function deleteItemFromCart(id) {
     let selectedDiv = document.getElementById(id).closest("div")
@@ -251,65 +243,94 @@ function deleteItemFromCart(id) {
     }
 }
 
-var input = document.querySelector('#qty');
-var btnminus = document.querySelector('.qtyminus');
-var btnplus = document.querySelector('.qtyplus');
+// if (input !== undefined && btnminus !== undefined && btnplus !== undefined && input !== null && btnminus !== null && btnplus !== null) {
+//     input = document.querySelector(".visible > ul > li > form > section > p > #qty")
+//     btnminus = document.querySelector(".visible > ul > li > form > section > p > button.qtyminus")
+//     btnplus = document.querySelector(".visible > ul > li > form > section > p > button.qtyplus")
+//
+//     var min = Number(input.getAttribute('min'));
+//     var max = Number(input.getAttribute('max'));
+//     var step = Number(input.getAttribute('step'));
+//
+//     function qtyminus(e) {
 
-if (input !== undefined && btnminus !== undefined && btnplus !== undefined && input !== null && btnminus !== null && btnplus !== null) {
+//         e.preventDefault();
+//     }
+//
+//     function qtyplus(e) {
 
+//     }
+//
+//     btnminus.addEventListener('click', qtyminus);
+//     btnplus.addEventListener('click', qtyplus);
+//
+// } // End if test
+
+function GetQtyPlus() {
+    var input = document.querySelector(".visible > ul > li > form > section > p > #qty")
+    var max = Number(input.getAttribute('max'));
+    var step = Number(input.getAttribute('step'));
+
+    var current = Number(input.value);
+    var newval = (current + step);
+    if(newval > max) newval = max;
+    input.value = Number(newval);
+
+    event.preventDefault()
+}
+
+function GetQtyMinis() {
+    var input = document.querySelector(".visible > ul > li > form > section > p > #qty")
     var min = Number(input.getAttribute('min'));
     var max = Number(input.getAttribute('max'));
     var step = Number(input.getAttribute('step'));
 
-    function qtyminus(e) {
-        var current = Number(input.value);
-        var newval = (current - step);
-        if(newval < min) {
-            newval = min;
-        } else if(newval > max) {
-            newval = max;
-        }
-        input.value = Number(newval);
-        e.preventDefault();
+    var current = Number(input.value);
+    var newval = (current - step);
+    if(newval < min) {
+        newval = min;
+    } else if(newval > max) {
+        newval = max;
     }
+    input.value = Number(newval);
 
-    function qtyplus(e) {
-        var current = Number(input.value);
-        var newval = (current + step);
-        if(newval > max) newval = max;
-        input.value = Number(newval);
-        e.preventDefault();
-    }
-
-    btnminus.addEventListener('click', qtyminus);
-    btnplus.addEventListener('click', qtyplus);
-
-} // End if test
+    event.preventDefault()
+}
 
 function submitPurchaseForm(id) {
-    var size = document.getElementById('size').value;
-    var quantity = document.getElementById('qty').value;
-    var form = document.querySelector("form");
+    var size = document.querySelector(".visible > ul > li > form > div > #size").value;
+    var quantity =     document.querySelector(".visible > ul > li > form > section > p > #qty").value;
+    var form = document.querySelector(".visible > ul > li > form");
 
     if (id === "tb-w-add") {
-        if (cartArray[0].attr.size === "0") {
-            cartArray[0].attr.size = size
-            cartArray[0].attr.quantity = quantity
-        } else {
-            cartArray[0].attr.size += size
-            cartArray[0].attr.quantity += quantity
+
+        if (cartArray[0][0].quantity === 0 && size === "L") {
+            cartArray[0][0].quantity = parseInt(quantity)
+        } else if (cartArray[0][0].quantity !== 0 && size === "L") {
+            cartArray[0][0].quantity += parseInt(quantity)
         }
-    } else if (id === "tb-b-add") {
-        if (cartArray[1].attr.size === "0") {
-            cartArray[1].attr.size = size
-            cartArray[1].attr.quantity = quantity
-        } else {
-            cartArray[1].attr.size += size
-            cartArray[1].attr.quantity += quantity
+
+        if (cartArray[0][1].quantity === 0 && size === "XL") {
+            cartArray[0][1].quantity = parseInt(quantity)
+        } else if (cartArray[0][1].quantity !== 0 && size === "XL") {
+            cartArray[0][1].quantity += parseInt(quantity)
         }
 
     }
+    if (id === "tb-b-add") {
+        if (cartArray[1][0].quantity === 0 && size === "L") {
+            cartArray[1][0].quantity = parseInt(quantity)
+        } else if (cartArray[1][0].quantity !== 0 && size === "L") {
+            cartArray[1][0].quantity += parseInt(quantity)
+        }
 
+        if (cartArray[1][1].quantity === 0 && size === "XL") {
+            cartArray[1][1].quantity = parseInt(quantity)
+        } else if (cartArray[1][1].quantity !== 0 && size === "XL") {
+            cartArray[1][1].quantity += parseInt(quantity)
+        }
+
+    }
     console.log(cartArray)
     form.reset()
 }
