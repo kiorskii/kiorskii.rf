@@ -479,7 +479,7 @@
                             </form>
                         </section>
                         <br>
-                        <input type="submit" value="Добавить в корзину">
+                        <input type="submit" id="tb-b-add" onclick="submitPurchaseForm(id)" value="Добавить в корзину">
                     </form>
                     <h3>Описание</h3>
                     <div class="item-description">
@@ -585,7 +585,7 @@
                             прайс: 3500₽
                         </li>
                         <li class="order-options-item">
-                            <button class="card__add" id="tb-w-add" onclick="addToCart(id)">в корзину</button>
+                            <button class="card__add"  onclick="addToCart()">в корзину</button>
                         </li>
                     </ul>
                     <h3>Описание</h3>
