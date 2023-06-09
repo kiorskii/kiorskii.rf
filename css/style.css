@@ -63,11 +63,12 @@ canvas {
 
 nav {
     font-weight: bold;
+    max-width: inherit;
     padding: 10px;
     font-size: 14px;
     font-family:'Courier New', Courier, monospace;
     display: grid;  
-    grid-template-columns: 12px 15px 15px 15px 1fr 15px;
+    grid-template-columns: 1vw 1vw 1vw 1vw 1fr 1vw 1vw 1vw 1vw;
     grid-gap: 10px;
     border-bottom: 2px solid black;
     align-items: flex-start;
