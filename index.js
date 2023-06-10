@@ -211,6 +211,7 @@ activeImage.onclick = function (evt) {
 let allItems = document.querySelectorAll(".hiddenitem")
 function openCart() {
     let cartFolder = document.querySelector('.cart')
+    var cartCount = document.querySelectorAll(".count-pieces")
     cartFolder.classList.remove("hidden")
     cartFolder.classList.add("visible")
     backArrow.classList.remove("hidden")
@@ -218,19 +219,24 @@ function openCart() {
     if (cartArray[0][0].quantity > 0) {
         allItems[2].classList.add("visibleitem")
         allItems[2].classList.remove("hiddenitem")
+        cartCount[2].innerHTML = cartArray[0][0].quantity
     }
     if (cartArray[0][1].quantity > 0) {
         allItems[3].classList.add("visibleitem")
         allItems[3].classList.remove("hiddenitem")
+        cartCount[3].innerHTML = cartArray[0][1].quantity
     }
     if (cartArray[1][0].quantity > 0) {
         allItems[0].classList.add("visibleitem")
         allItems[0].classList.remove("hiddenitem")
+        cartCount[0].innerHTML = cartArray[1][0].quantity
     }
     if (cartArray[1][1].quantity > 0) {
         allItems[1].classList.add("visibleitem")
         allItems[1].classList.remove("hiddenitem")
+        cartCount[1].innerHTML = cartArray[1][1].quantity
     }
+
 }
 
 
@@ -365,7 +371,7 @@ function submitPurchaseForm(id) {
         }
 
     }
-    console.log(cartArray)
+    // console.log(cartArray)
     form.reset()
 }
 
@@ -424,8 +430,8 @@ $(document).ready(function() {
             data: formData,
             success: function(response) {
                 // Успешное выполнение запроса
-                console.log(response)
                 // Выполняем перенаправление на другую страницу
+                window.open(`https://www.tinkoff.ru/rm/khusnutdinov.vlad1/2rVee42229/?moneyAmount=${cartArray[2].orderSum}`,'_blank');
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 // В случае ошибки при выполнении запроса
