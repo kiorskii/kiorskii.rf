@@ -335,6 +335,62 @@ function submitPurchaseForm(id) {
     form.reset()
 }
 
+$(document).ready(function() {
+    // Обработчик события отправки формы
+    $("#final-order-form").submit(function(event) {
+        event.preventDefault(); // Отменяем стандартное поведение формы
+
+        // Собираем данные из полей формы
+        var fio = $("#fio").val();
+        var phone = $("#phone").val();
+        var purchase = `${cartArray[0].color}: ${cartArray[0][0].size} - ${cartArray[0][0].quantity}, ${cartArray[0][1].size} - ${cartArray[0][1].quantity}, ${cartArray[1].color}: ${cartArray[1][0].size} - ${cartArray[1][0].quantity}, ${cartArray[1][1].size} - ${cartArray[1][1].quantity}`
+        var social = $("#social").val();
+        var deliveryrf = $("#delivery-rf").is(':checked')
+        var deliveryww = $("#delivery-ww").is(':checked')
+        var freeDelivery = $("#free-delivery").is(':checked')
+        var selfPickup = $("#self-pickup").is(':checked')
+        var shipType
+
+        if (deliveryrf) {
+            shipType = "по РФ"
+        } else if (deliveryww) {
+            shipType = "по Миру"
+        } else if (freeDelivery) {
+            shipType = "по Екб"
+        } else if (selfPickup) {
+            shipType = "Самовывоз"
+        }
+
+        var address = $("#address").val();
+
+        // Создаем объект данных для отправки на сервер
+        var formData = {
+            fio: fio,
+            phone: phone,
+            purchase: purchase,
+            social: social,
+            shipType: shipType,
+            address: address
+        };
+
+        // Отправляем данные на сервер с помощью AJAX-запроса
+        $.ajax({
+            url: "php/add_data.php", // Укажите путь к вашему PHP-скрипту
+            type: "POST",
+            data: formData,
+            success: function(response) {
+                // Успешное выполнение запроса
+                console.log(response)
+                // Выполняем перенаправление на другую страницу
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                // В случае ошибки при выполнении запроса
+                console.log("Ошибка: " + textStatus, errorThrown);
+            }
+        });
+    });
+});
+
 
 // cartOrderForm *************************
 
