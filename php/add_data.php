@@ -22,8 +22,8 @@ if ($conn->connect_error) {
 }
 
 // Подготовка SQL-запроса на добавление данных в таблицу
-$sql = "INSERT INTO orders (fio, phone, purchase, social, shipType, addres, date)
-        VALUES ('$fio', '$phone', '$purchase', '$social', '$shipType', '$address', CURDATE())";
+$sql = "INSERT INTO orders (fio, phone, purchase, social, shipType, addres, date, time)
+        VALUES ('$fio', '$phone', '$purchase', '$social', '$shipType', '$address', CURRENT_DATE(), CURRENT_TIME())";
 
 if ($conn->query($sql) === TRUE) {
     echo "Данные успешно добавлены в базу данных";
