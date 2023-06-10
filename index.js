@@ -29,6 +29,7 @@ var cartArray = [
 
     },
     {"orderSum": 0},
+    {"shipCost": 0}
    ]
 
 
@@ -261,11 +262,11 @@ function deleteItemFromCart(id) {
     var sum = cartArray[0][0].quantity+cartArray[0][1].quantity+cartArray[1][0].quantity+cartArray[1][1].quantity
     var carditemcounter = document.querySelector(".cart-item-counter")
     carditemcounter.innerHTML = sum
+    cartArray[2].orderSum = sum * 3500
 
     var totalPrice = document.querySelector(".total-price")
-    totalPrice.innerHTML = sum * 3500
+    totalPrice.innerHTML = cartArray[2].orderSum
 
-    cartArray[2].orderSum = sum * 3500
 
     let allItems = document.querySelectorAll(".visibleitem")
     var finalPrice = 0 
@@ -448,14 +449,24 @@ const deliveryRFRadio = document.getElementById('delivery-rf');
 const addressField = document.getElementById('address-field');
 
 deliveryRFRadio.addEventListener('change', function() {
+    var totalPrice = document.querySelector(".total-price")
+
     if (this.checked) {
+        cartArray[3].shipCost = 300
+        totalPrice.innerHTML = cartArray[2].orderSum + cartArray[3].shipCost
         addressField.style.display = 'block';
     } else {
+        cartArray[3].shipCost = 0
+        cartArray[2].orderSum = cartArray[2].orderSum - cartArray[3].shipCost
+        totalPrice.innerHTML = cartArray[2].orderSum
         addressField.style.display = 'none';
     }
 });
 
 function addressFieldHide() {
+    var totalPrice = document.querySelector(".total-price")
+    cartArray[3].shipCost = 0
+    totalPrice.innerHTML = cartArray[2].orderSum + cartArray[3].shipCost
     addressField.style.display = 'none';
 }
 
