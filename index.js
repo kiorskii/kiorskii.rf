@@ -414,7 +414,7 @@ $(document).ready(function() {
             success: function(response) {
                 // Успешное выполнение запроса
                 // Выполняем перенаправление на другую страницу
-                window.open(`https://www.tinkoff.ru/rm/khusnutdinov.vlad1/2rVee42229/?moneyAmount=${cartArray[2].orderSum}`,'_blank');
+                window.open(`https://www.tinkoff.ru/rm/khusnutdinov.vlad1/2rVee42229/?moneyAmount=${cartArray[2].orderSum}+${cartArray[3].shipCost}`,'_blank');
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 // В случае ошибки при выполнении запроса
