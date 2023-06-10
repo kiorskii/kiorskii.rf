@@ -211,6 +211,12 @@ activeImage.onclick = function (evt) {
 // cartOpen
 let allItems = document.querySelectorAll(".hiddenitem")
 function openCart() {
+    if (cartArray[0][0].quantity || cartArray[0][1].quantity || cartArray[1][0].quantity || cartArray[1][1].quantity) {
+        let emptyCartTitle = document.querySelector(".empty")
+        emptyCartTitle.classList.remove("visibleitem")
+        emptyCartTitle.classList.add("hiddenitem")
+    }
+
     let cartFolder = document.querySelector('.cart')
     var cartCount = document.querySelectorAll(".count-pieces")
     cartFolder.classList.remove("hidden")
@@ -283,30 +289,6 @@ function deleteItemFromCart(id) {
         b.classList.remove("hiddenitem")
     }
 }
-
-// if (input !== undefined && btnminus !== undefined && btnplus !== undefined && input !== null && btnminus !== null && btnplus !== null) {
-//     input = document.querySelector(".visible > ul > li > form > section > p > #qty")
-//     btnminus = document.querySelector(".visible > ul > li > form > section > p > button.qtyminus")
-//     btnplus = document.querySelector(".visible > ul > li > form > section > p > button.qtyplus")
-//
-//     var min = Number(input.getAttribute('min'));
-//     var max = Number(input.getAttribute('max'));
-//     var step = Number(input.getAttribute('step'));
-//
-//     function qtyminus(e) {
-
-//         e.preventDefault();
-//     }
-//
-//     function qtyplus(e) {
-
-//     }
-//
-//     btnminus.addEventListener('click', qtyminus);
-//     btnplus.addEventListener('click', qtyplus);
-//
-// } // End if test
-
 function GetQtyPlus() {
     var input = document.querySelector(".visible > ul > li > form > section > p > #qty")
     var max = Number(input.getAttribute('max'));
