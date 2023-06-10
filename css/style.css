@@ -1,28 +1,3 @@
-@import url(https://allfont.net/allfont.css?fonts=courier-new);
-
-@font-face {
-    font-family: "Courier";
-    font-style: normal;
-    font-weight: 400;
-    src: local("Courier New"),
-    url("/font/couriernew.ttf") format("ttf");
-}
-
-@font-face {
-    font-family: "Courier";
-    font-weight: 700;
-    src: local("Courier New"),
-    url("/font/couriernewbold.ttf") format("ttf");
-}
-
-@font-face {
-    font-family: "Courier";
-    font-style: italic;
-    font-weight: 400;
-    src: local("Courier New"),
-    url("/font/couriernewitalic.ttf") format("ttf");
-}
-
 body {
     font-family: "Courier New", Courier, monospace;
 }
