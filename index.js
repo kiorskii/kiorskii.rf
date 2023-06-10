@@ -335,3 +335,22 @@ function submitPurchaseForm(id) {
     form.reset()
 }
 
+
+// cartOrderForm *************************
+
+const deliveryRFRadio = document.getElementById('delivery-rf');
+const addressField = document.getElementById('address-field');
+
+deliveryRFRadio.addEventListener('change', function() {
+    if (this.checked) {
+        addressField.style.display = 'block';
+    } else {
+        addressField.style.display = 'none';
+    }
+});
+
+function addressFieldHide() {
+    addressField.style.display = 'none';
+}
+
+

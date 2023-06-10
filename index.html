@@ -34,7 +34,7 @@
                 </button>
             </div>
             <div class="nav-item mainhead">
-                <button class="navigation-button" onclick="homeFunction()">
+                <button class="navigation-button mainname" onclick="homeFunction()">
                     someskiishit.app
                 </button>
             </div>
@@ -858,8 +858,32 @@
                 </li>
                 <li>
                     <div class="order-form">
-                        <form>
-                            
+                        <form id="final-order-form">
+                            <label for="name">ФИО:</label>
+                            <input type="text" id="name" name="name" required>
+
+                            <label for="phone">номер телефона:</label>
+                            <input type="tel" id="phone" name="phone" required>
+
+                            <label for="social">соц сеть для связи:</label>
+                            <input type="text" id="social" name="social" required>
+
+                            <p>способ получения:</p>
+                            <input type="radio" id="delivery-rf" name="delivery" value="delivery-rf">
+                            <label for="delivery-rf">Доставка по РФ</label><br>
+
+                            <input type="radio" id="free-delivery" name="delivery" value="free-delivery" onclick="addressFieldHide()">
+                            <label for="free-delivery">Бесплатная курьерская доставка по ЕКБ</label><br>
+
+                            <input type="radio" id="self-pickup" name="delivery" value="self-pickup" onclick="addressFieldHide()">
+                            <label for="self-pickup">Самовывоз</label><br>
+
+                            <div id="address-field" style="display: none;">
+                                <label for="address">Адрес доставки:</label>
+                                <input type="text" id="address" name="address">
+                            </div>
+
+                            <button type="submit">Отправить</button>
                         </form>
                     </div>                      
                 </li>

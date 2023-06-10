@@ -96,10 +96,8 @@ nav {
     justify-self:end;
 }
 
-.nav-item:hover {
+.navigation-button:hover {
     background-color: #000;
-    width: 15px;
-    background-size: auto;
     color: #d4d4d4;
 }
 
@@ -182,10 +180,11 @@ ul {
 
     .item-select-form{
         display: flex;
-        justify-content: center;
+        width: 100%;
+        justify-content: space-between;
         flex-direction: row;
         gap: 5vw;
-        padding: 15px;
+        padding: 15px 0;
         font-size: 18px;
     }
 
