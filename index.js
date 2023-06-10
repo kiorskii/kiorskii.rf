@@ -412,7 +412,7 @@ function addressFieldHide() {
 // phoneNumberValidation *****************
 
 function setCursorPosition(pos, e) {
-    e.focus();
+    // e.focus();
     if (e.setSelectionRange) e.setSelectionRange(pos, pos);
     else if (e.createTextRange) {
         var range = e.createTextRange();
