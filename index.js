@@ -27,7 +27,9 @@ var cartArray = [
             "quantity":0
         }
 
-    } ]
+    },
+    {"orderSum": 0},
+   ]
 
 
 //making the canvas full screen
@@ -206,36 +208,68 @@ activeImage.onclick = function (evt) {
 }
 }
 // cartOpen
-
+let allItems = document.querySelectorAll(".hiddenitem")
 function openCart() {
     let cartFolder = document.querySelector('.cart')
     cartFolder.classList.remove("hidden")
     cartFolder.classList.add("visible")
     backArrow.classList.remove("hidden")
     backArrow.classList.add("visible")
-    let allItems = document.querySelectorAll(".visibleitem")
-    var finalPrice = 0 
-    for (let i of allItems) {
-        var temp=Number(i.querySelector(".cart-item-price").textContent)
-        finalPrice=finalPrice+temp
+    if (cartArray[0][0].quantity > 0) {
+        allItems[2].classList.add("visibleitem")
+        allItems[2].classList.remove("hiddenitem")
     }
-    let totalPrice = document.querySelector('.total-price')
-    totalPrice.innerHTML=finalPrice
+    if (cartArray[0][1].quantity > 0) {
+        allItems[3].classList.add("visibleitem")
+        allItems[3].classList.remove("hiddenitem")
+    }
+    if (cartArray[1][0].quantity > 0) {
+        allItems[0].classList.add("visibleitem")
+        allItems[0].classList.remove("hiddenitem")
+    }
+    if (cartArray[1][1].quantity > 0) {
+        allItems[1].classList.add("visibleitem")
+        allItems[1].classList.remove("hiddenitem")
+    }
 }
 
 
 function deleteItemFromCart(id) {
     let selectedDiv = document.getElementById(id).closest("div")
     selectedDiv.classList.remove("visibleitem")
-    selectedDiv.classList.add("hiddenitem") 
+    selectedDiv.classList.add("hiddenitem")
+
+    if (id === "item_1") {
+        cartArray[1][0].quantity = 0
+    }
+    if (id === "item_2") {
+        cartArray[1][1].quantity = 0
+    }
+    if (id === "item_3") {
+        cartArray[0][0].quantity = 0
+    }
+    if (id === "item_4") {
+        cartArray[0][1].quantity = 0
+    }
+
+    var sum = cartArray[0][0].quantity+cartArray[0][1].quantity+cartArray[1][0].quantity+cartArray[1][1].quantity
+    var carditemcounter = document.querySelector(".cart-item-counter")
+    carditemcounter.innerHTML = sum
+
+    var totalPrice = document.querySelector(".total-price")
+    totalPrice.innerHTML = sum * 3500
+
+    cartArray[2].orderSum = sum * 3500
+
     let allItems = document.querySelectorAll(".visibleitem")
     var finalPrice = 0 
     for (let i of allItems) {
         var temp=Number(i.querySelector(".cart-item-price").textContent)
         finalPrice=finalPrice+temp
     }
-    let totalPrice = document.querySelector('.total-price')
-    totalPrice.innerHTML=finalPrice
+
+
+
     if (document.querySelectorAll(".visibleitem").length==0) {
         let b=document.querySelector(".empty")
         b.classList.add("visibleitem")
@@ -334,6 +368,16 @@ function submitPurchaseForm(id) {
     console.log(cartArray)
     form.reset()
 }
+
+
+$(".addtocart-button").click(function () {
+    var sum = cartArray[0][0].quantity+cartArray[0][1].quantity+cartArray[1][0].quantity+cartArray[1][1].quantity
+    var carditemcounter = document.querySelector(".cart-item-counter")
+    carditemcounter.innerHTML = sum
+    cartArray[2].orderSum = sum*3500
+    var totalPrice = document.querySelector(".total-price")
+    totalPrice.innerHTML = parseInt(cartArray[2].orderSum)
+})
 
 $(document).ready(function() {
     // Обработчик события отправки формы
