@@ -568,6 +568,7 @@ img {
 }
 
 .item-select-form-warpper>select {
+    color: black;
     display: block;
     width: 100%;
     margin-top: 5px;
