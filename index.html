@@ -343,7 +343,7 @@
                         <li class="order-options-item">
                             прайс:
                             <span>
-                               4500₽
+                               4500руб.
                             </span>
                         </li>
                         <button class="addtocart-button" disabled>солд</button>
@@ -367,7 +367,7 @@
                         Доставка/самовывоз:
                         Самовывоз Хохрякова 63
                         Бесплатная курьерская доставка в пределах екб
-                        Почта России 200₽
+                        Почта России 200руб.
                     </p>
                     <p>
                         Моменты:
@@ -467,7 +467,7 @@
                         </div>
                         <li class="order-options-item">
 
-                            прайс: <span>3500₽</span>
+                            прайс: <span>3500 руб.</span>
                         </li>
                         <section>
                             <form action="">
@@ -475,7 +475,7 @@
                                     <label for="qty">количество:</label>
                                     <button class="qtyminus" onclick="GetQtyMinis()" aria-hidden="true">&minus;</button>
                                     <input type="number" name="qty" id="qty" min="1" max="10" step="1" value="1">
-                                    <button class="qtyminus" onclick="GetQtyPlus()" aria-hidden="true">&plus;</button>
+                                    <button class="qtyplus" onclick="GetQtyPlus()" aria-hidden="true">&plus;</button>
                                 </p>
                             </form>
                         </section>
@@ -577,7 +577,7 @@
                             </select>
                         </div>
                         <li class="order-options-item">
-                            прайс:  <span>3500₽</span>
+                            прайс:  <span>3500 руб.</span>
                         </li>
                         <section>
                             <form action="">
@@ -585,7 +585,7 @@
                                     <label for="qty">количество:</label>
                                     <button class="qtyminus" onclick="GetQtyMinis()" aria-hidden="true">&minus;</button>
                                     <input type="number" name="qty" id="qty" min="1" max="10" step="1" value="1">
-                                    <button class="qtyminus" onclick="GetQtyPlus()" aria-hidden="true">&plus;</button>
+                                    <button class="qtyplus" onclick="GetQtyPlus()" aria-hidden="true">&plus;</button>
                                 </p>
                             </form>
                         </section>
@@ -811,7 +811,7 @@
                                 <div class="card-item-info">
                                 <a class="cart-item-name">футба би ски (чёрная)</a>
                                 <p class="cart-item-size">l</p>
-                                <p ><span class="cart-item-price">3500</span>₽</p>
+                                <p ><span class="cart-item-price">3500</span>руб.</p>
                                 </div>
                                 <button class="cart-item-delete" id="item_1" onclick="deleteItemFromCart(id)"><img src="img/close.png" height="15px" width="15px"></button>
                             </div>
@@ -822,7 +822,7 @@
                                 <div class="card-item-info">
                                 <a class="cart-item-name">футба би ски (чёрная)</a>
                                 <p class="cart-item-size">xl</p>
-                                <p ><span class="cart-item-price">3500</span>₽</p>
+                                <p ><span class="cart-item-price">3500</span>руб.</p>
                                 </div>
                                 <button class="cart-item-delete" id="item_2" onclick="deleteItemFromCart(id)"><img src="img/close.png" height="15px" width="15px"></button>
                             </div>
@@ -833,7 +833,7 @@
                                 <div class="card-item-info">
                                 <a class="cart-item-name">футба би ски (белая)</a>
                                 <p class="cart-item-size">l</p>
-                                <p><span class="cart-item-price">3500</span>₽</p>
+                                <p><span class="cart-item-price">3500</span>руб.</p>
                                 </div>
                                 <button class="cart-item-delete" id="item_3" onclick="deleteItemFromCart(id)"><img src="img/close.png" height="15px" width="15px"></button>
                             </div>
@@ -844,14 +844,14 @@
                                 <div class="card-item-info">
                                 <a class="cart-item-name">футба би ски (белая)</a>
                                 <p class="cart-item-size">xl</p>
-                                <p><span class="cart-item-price">3500</span>₽</p>
+                                <p><span class="cart-item-price">3500</span>руб.</p>
                                 </div>
                                 <button class="cart-item-delete" id="item_4" onclick="deleteItemFromCart(id)"><img src="img/close.png" height="15px" width="15px"></button>
                             </div>
                         </li>
                         <li>
                             <div class="total-price-block">
-                                Итого: <span class="total-price">0</span>₽
+                                Итого: <span class="total-price">0</span>руб.
                             </div>
                         </li>
                     </ul>
@@ -859,31 +859,51 @@
                 <li>
                     <div class="order-form">
                         <form id="final-order-form">
-                            <label for="name">ФИО:</label>
-                            <input type="text" id="name" name="name" required>
-
-                            <label for="phone">номер телефона:</label>
-                            <input type="tel" id="phone" name="phone" required>
-
-                            <label for="social">соц сеть для связи:</label>
-                            <input type="text" id="social" name="social" required>
-
-                            <p>способ получения:</p>
-                            <input type="radio" id="delivery-rf" name="delivery" value="delivery-rf">
-                            <label for="delivery-rf">Доставка по РФ</label><br>
-
-                            <input type="radio" id="free-delivery" name="delivery" value="free-delivery" onclick="addressFieldHide()">
-                            <label for="free-delivery">Бесплатная курьерская доставка по ЕКБ</label><br>
-
-                            <input type="radio" id="self-pickup" name="delivery" value="self-pickup" onclick="addressFieldHide()">
-                            <label for="self-pickup">Самовывоз</label><br>
-
-                            <div id="address-field" style="display: none;">
-                                <label for="address">Адрес доставки:</label>
-                                <input type="text" id="address" name="address">
+                            <div class="order-wrapper">
+                                <label for="name">ФИО:</label>
+                                <input class="order__input" type="text" id="name" name="name"
+                                       placeholder="Кёрскичанин Киор Кёрскович" required>
                             </div>
-
-                            <button type="submit">Отправить</button>
+                            <div class="order-wrapper">
+                                <label for="online_phone">номер телефона:</label>
+                                <input class="order__input" type="tel" id="online_phone" name="phone"
+                                       value="+7(___)___-__-__"
+                                       pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}"
+                                       placeholder="+7(___)___-__-__" required>
+                            </div>
+                            <div class="order-wrapper">
+                                <label for="social">соц сеть для связи(тг / вк / инст):</label>
+                                <input class="order__input" type="text" id="social" name="social"
+                                       placeholder="@kiorroik" required>
+                            </div>
+                            <div class="var-wrapper">
+                                <p>способ получения:</p>
+                            </div>
+                            <div class="var-wrapper">
+                                <input type="radio" id="delivery-rf" name="delivery" value="delivery-rf">
+                                <label for="delivery-rf">Доставка по РФ (300р)</label><br>
+                            </div>
+                            <div class="var-wrapper">
+                                <input type="radio" id="delivery-ww" name="delivery" value="delivery-ww" onclick="addressFieldHide()">
+                                <label for="delivery-ww">Доставка по миру (Согласуется отдельно)</label><br>
+                            </div>
+                            <div class="var-wrapper">
+                                <input type="radio" id="free-delivery" name="delivery" value="free-delivery" onclick="addressFieldHide()">
+                                <label for="free-delivery">Бесплатная курьерская доставка (по Екатеринбургу)</label><br>
+                            </div>
+                            <div class="var-wrapper">
+                                <input type="radio" id="self-pickup" name="delivery" value="self-pickup" onclick="addressFieldHide()">
+                                <label for="self-pickup">Самовывоз (ул. Хохрякова 63)</label><br>
+                            </div>
+                            <div id="address-field" style="display: none;">
+                                <div class="order-wrapper">
+                                    <label for="address">Адрес доставки:</label>
+                                    <input class="order__input" type="text" id="address" name="address"
+                                           placeholder="страна, город, улица, дом, индекс">
+                                </div>
+                            </div>
+                            <p><span style="color: white;">Внимание!</span> В сообщении к переводу укажите свой <span style="color: white;">номер телефона</span></p>
+                            <button class="createOrder" type="submit">Оформить заказ</button>
                         </form>
                     </div>                      
                 </li>
