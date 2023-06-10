@@ -16,7 +16,7 @@
         <nav>
             <div class="nav-item">
                 <button class="navigation-button" onclick="window.open('','_self').close()">
-                    <img src="img/close.png" width="10px" height="10px">
+                    <img src="img/close.png" width="12px" height="12px">
                 </button>
             </div>
             <div class="nav-item">
@@ -44,10 +44,11 @@
             <div class="nav-item blank">
             </div>
             <div class="nav-item blank">
+                <span class="cart-item-counter">0</span>
             </div>
             <div class="nav-item bag">
                 <button class="navigation-button" onclick="openCart()">
-                    <span class="cart-item-counter">0</span><img src="img/shopping-bag.png" width="15px" height="15px">
+                    <img src="img/shopping-bag.png" width="15px" height="15px">
                 </button>
             </div>
         </nav>
@@ -802,16 +803,16 @@
                 <li class="card-list-leftblock">
                     <ul>
                         <li>
-                            <div class="card-in-cart empty visibleitem">
+                            <div class="card-in-cart empty hiddenitem">
                                 Корзина пуста
                             </div>
                         </li>
                         <li>
-                            <div id="tb-b-added_size-M" class="card-in-cart hiddenitem">
+                            <div id="tb-b-added_size-M" class="card-in-cart visibleitem">
                                 <img class="cart-item-img" src="img/items/tb-b/s/tb-b-prev.jpg" height="150px" width="120px">
                                 <div class="card-item-info">
                                 <a class="cart-item-name">футба би ски (чёрная)</a>
-                                <p class="cart-item-size">l</p>
+                                <p class="cart-item-size">размер: l / <span class="count-pieces">1</span> шт.</p>
                                 <p ><span class="cart-item-price">3500</span>руб.</p>
                                 </div>
                                 <button class="cart-item-delete" id="item_1" onclick="deleteItemFromCart(id)"><img src="img/close.png" height="15px" width="15px"></button>
@@ -822,7 +823,7 @@
                                 <img class="cart-item-img" src="img/items/tb-b/s/tb-b-prev.jpg" height="150px" width="120px">
                                 <div class="card-item-info">
                                 <a class="cart-item-name">футба би ски (чёрная)</a>
-                                <p class="cart-item-size">xl</p>
+                                    <p class="cart-item-size">размер: xl / <span class="count-pieces">1</span> шт.</p>
                                 <p ><span class="cart-item-price">3500</span>руб.</p>
                                 </div>
                                 <button class="cart-item-delete" id="item_2" onclick="deleteItemFromCart(id)"><img src="img/close.png" height="15px" width="15px"></button>
@@ -833,7 +834,7 @@
                                 <img class="cart-item-img" src="img/items/tb-w/s/tb-w-prev.jpg" height="150px" width="120px">
                                 <div class="card-item-info">
                                 <a class="cart-item-name">футба би ски (белая)</a>
-                                <p class="cart-item-size">l</p>
+                                    <p class="cart-item-size">размер: l / <span class="count-pieces">1</span> шт.</p>
                                 <p><span class="cart-item-price">3500</span>руб.</p>
                                 </div>
                                 <button class="cart-item-delete" id="item_3" onclick="deleteItemFromCart(id)"><img src="img/close.png" height="15px" width="15px"></button>
@@ -844,7 +845,7 @@
                                 <img class="cart-item-img" src="img/items/tb-w/s/tb-w-prev.jpg" height="150px" width="120px">
                                 <div class="card-item-info">
                                 <a class="cart-item-name">футба би ски (белая)</a>
-                                <p class="cart-item-size">xl</p>
+                                    <p class="cart-item-size">размер: l / <span class="count-pieces">1</span> шт.</p>
                                 <p><span class="cart-item-price">3500</span>руб.</p>
                                 </div>
                                 <button class="cart-item-delete" id="item_4" onclick="deleteItemFromCart(id)"><img src="img/close.png" height="15px" width="15px"></button>
