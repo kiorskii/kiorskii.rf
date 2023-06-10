@@ -106,7 +106,7 @@ nav {
     font-size: 14px;
     font-family:'Courier New', Courier, monospace;
     display: grid;  
-    grid-template-columns: 2vw 2vw 2vw 2vw 1fr 2vw 2vw 2vw 4vw;
+    grid-template-columns: 2vw 2vw 2vw 2vw 1fr 2vw 2vw 2vw 2vw;
     grid-gap: 10px;
     border-bottom: 2px solid black;
     align-items: flex-start;
@@ -327,6 +327,16 @@ ul {
     .addtocart-button, .createOrder,
     .item-select-form {
         font-size: 20px;
+    }
+
+    .addtocart-button, .createOrder {
+        margin-top: 15px;
+        width: 80% !important;
+        height: 2em !important;
+    }
+
+    nav {
+        grid-template-columns: 3vw 3vw 3vw 3vw 1fr 3vw 3vw 3vw 3vw !important;
     }
 }
 
@@ -609,12 +619,22 @@ img {
 }
 
 .addtocart-button, .createOrder {
-    width: 80%;
-    height: 2em;
-    background-color: #888888;
+    margin-top: 15px;
+    width: 60%;
+    height: 3em;
+    background-color: #d4d4d4;
     background-clip: padding-box;
     border: 1px solid white;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     text-align: center;
+}
+
+.cart-item-counter {
+    vertical-align: middle;
+    color: #6F6F6F;
+}
+
+.cart {
+    top:34px;
 }
