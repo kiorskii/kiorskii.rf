@@ -106,7 +106,7 @@ nav {
     font-size: 14px;
     font-family:'Courier New', Courier, monospace;
     display: grid;  
-    grid-template-columns: 2vw 2vw 2vw 2vw 1fr 2vw 2vw 2vw 2vw;
+    grid-template-columns: 2vw 2vw 2vw 2vw 1fr 2vw 2vw 2vw 4vw;
     grid-gap: 10px;
     border-bottom: 2px solid black;
     align-items: flex-start;
@@ -322,6 +322,11 @@ ul {
     .addtocart-button {
         margin-top: 10px;
         width: fit-content;
+    }
+
+    .addtocart-button, .createOrder,
+    .item-select-form {
+        font-size: 20px;
     }
 }
 
