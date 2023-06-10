@@ -341,8 +341,8 @@ $(document).ready(function() {
         event.preventDefault(); // Отменяем стандартное поведение формы
 
         // Собираем данные из полей формы
-        var fio = $("#fio").val();
-        var phone = $("#phone").val();
+        var fio = $("#name").val();
+        var phone = $("#online_phone").val();
         var purchase = `${cartArray[0].color}: ${cartArray[0][0].size} - ${cartArray[0][0].quantity}, ${cartArray[0][1].size} - ${cartArray[0][1].quantity}, ${cartArray[1].color}: ${cartArray[1][0].size} - ${cartArray[1][0].quantity}, ${cartArray[1][1].size} - ${cartArray[1][1].quantity}`
         var social = $("#social").val();
         var deliveryrf = $("#delivery-rf").is(':checked')
@@ -412,7 +412,7 @@ function addressFieldHide() {
 // phoneNumberValidation *****************
 
 function setCursorPosition(pos, e) {
-    e.focus();
+    // e.focus();
     if (e.setSelectionRange) e.setSelectionRange(pos, pos);
     else if (e.createTextRange) {
         var range = e.createTextRange();
