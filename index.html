@@ -44,7 +44,7 @@
             <div class="nav-item blank">
             </div>
             <div class="nav-item blank">
-                <span class="cart-item-counter">0</span>
+                <span class="cart-item-counter hidden">0</span>
             </div>
             <div class="nav-item bag">
                 <button class="navigation-button" onclick="openCart()">
@@ -56,6 +56,27 @@
     <div id="preloader"></div>
     <div class="desktop">
         <ul id="desktop-icons" class="mainDesktop">
+            <div class="popup-wrapper folder visible">
+                <div class="popup folder">
+
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close-popup">&times;</span>
+                            <div id="carousel" class="carousel">
+                                <div style="display: block;"><img src="img/pupup/1.png" alt="Image 1"></div>
+                                <div style="display: none;"><img src="img/pupup/2.png" alt="Image 2"></div>
+                                <div style="display: none;"><img src="img/pupup/3.png" alt="Image 3"></div>
+                            </div>
+                            <div class="description">
+                                <p>BE SKII season 23 out now!</p>
+                            </div>
+                            <a id="prevBtn" class="carousel-btn prev">&#10094;</a>
+                            <a id="nextBtn" class="carousel-btn next">&#10095;</a>
+                        </div>
+                    </div>
+            </div>
+
+            </div>
             <li class="desktop-item">
                 <button class="desktop-button itemsbutton">
                 <img src="img/folder.png" width="50px" height="50px">
@@ -487,7 +508,7 @@
                     <div class="item-description">
                         <p>
                             <br>
-                            Самое лучшее поколение тишек кёрски. Качество и посадка мясо<br><br>
+                            Самое лучшее поколение тишек кёрски. По крою - самый стилевый оверсайз, качество и плотность ткани мясооо. Ваша стилёвая эволюция начинается здесь и сейчас))))<br><br>
                         </p>
                         <p>
                             Рекомендации по размеру: <br>
@@ -597,7 +618,7 @@
                     <div class="item-description">
                         <p>
                             <br>
-                            Самое лучшее поколение тишек кёрски. Качество и посадка мясо<br><br>
+                            Самое лучшее поколение тишек кёрски. По крою - самый стилевый оверсайз, качество и плотность ткани мясооо. Ваша стилёвая эволюция начинается здесь и сейчас))))<br><br>
                         </p>
                         <p>
                             Рекомендации по размеру: <br>
@@ -877,7 +898,7 @@
                             <div class="order-wrapper">
                                 <label for="social">соц сеть для связи(тг / вк / инст):</label>
                                 <input class="order__input" type="text" id="social" name="social"
-                                       placeholder="tg @kiorroik" required>
+                                       placeholder="тг @kiorroik" required>
                             </div>
                             <div class="var-wrapper">
                                 <p>способ получения:</p>

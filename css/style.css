@@ -36,7 +36,7 @@ input[type="text"] {
     margin: 0;
     padding: 0;
     font-family:'Courier New', Courier, monospace;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 body {
@@ -319,6 +319,24 @@ ul {
     nav {
         grid-template-columns: 3vw 3vw 3vw 3vw 1fr 3vw 3vw 3vw 3vw !important;
     }
+
+    .carousel>div {
+        height: inherit;
+    }
+
+    .carousel img {
+        height: inherit;
+    }
+
+    .popup {
+        border-radius: 2%;
+        width: 96% !important;
+        height: 33% !important;
+    }
+
+    .modal-content {
+        padding-bottom: 5px;
+    }
 }
 
 @media only screen and (max-width: 376px) {
@@ -475,10 +493,9 @@ button[disabled]{
 }
 
 .TempUnavaliable>p, .txtfolder>p, .txtfolder>h3 {
-    padding: 0 15px;
+    padding: 15px 0;
     text-align: center;
     color: #6F6F6F;
-    padding-top: 1vh;
 }
 
 li {
@@ -538,7 +555,7 @@ img {
     font-size: 1rem;
     background-color: #888888;
     background-clip: padding-box;
-    border: 0.5px solid white;
+    border: 1px solid white;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     text-align: center;
@@ -635,4 +652,91 @@ img {
 .empty {
     justify-content: center;
     margin: 25px 0;
+}
+
+.popup-wrapper {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.popup {
+    border-radius: 2%;
+    width: 70%;
+    height: 74%;
+}
+
+.modal {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.modal-content {
+    height: 100%;
+    border-radius: 2%;
+    background-color: #f1f2f4;
+    position: relative;
+}
+
+.close-popup {
+    right: 10px;
+    position: absolute;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-popup:hover,
+.close-popup:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.carousel {
+    width: 100%;
+    height: 95%;
+    overflow: hidden;
+}
+
+.carousel img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 2%;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    text-decoration: none;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.description {
+    text-align: center;
+}
+
+p {
+    font-size: 18px;
+    margin: 0;
 }

@@ -1,8 +1,7 @@
 // geting canvas by Boujjou Achraf
-var c = document.getElementById("canv");
-var ctx = c.getContext("2d");
+let c = document.getElementById("canv");
+let ctx = c.getContext("2d");
 
-const price = 3500
 var cartArray = [
     {
         "color":"white",
@@ -33,48 +32,33 @@ var cartArray = [
    ]
 
 
-//making the canvas full screen
 c.height = window.innerHeight;
 c.width = window.innerWidth;
 
-//chinese characters - taken from the unicode charset
-var matrix = "skiSKI$";
-//converting the string into an array of single characters
+let matrix = "skiSKI$";
 matrix = matrix.split("");
 
-var font_size = 12;
-var columns = c.width/font_size; //number of columns for the rain
-//an array of drops - one per column
-var drops = [];
-//x below is the x coordinate
-//1 = y co-ordinate of the drop(same for every drop initially)
+let font_size = 12;
+let columns = c.width/font_size;
+let drops = [];
 for(var x = 0; x < columns; x++)
     drops[x] = 1; 
 
-//drawing the characters
 function draw()
 {
-    //Black BG for the canvas
-    //translucent BG to show trail
     ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
     ctx.fillRect(0, 0, c.width, c.height);
 
-    ctx.fillStyle = "#ab4657";//green text
+    ctx.fillStyle = "#ab4657";
     ctx.font = font_size + "px arial";
-    //looping over drops
     for(var i = 0; i < drops.length; i++)
     {
-        //a random chinese character to print
         var text = matrix[Math.floor(Math.random()*matrix.length)];
-        //x = i*font_size, y = value of drops[i]*font_size
         ctx.fillText(text, i*font_size, drops[i]*font_size);
 
-        //sending the drop back to the top randomly after it has crossed the screen
-        //adding a randomness to the reset to make the drops scattered on the Y axis
         if(drops[i]*font_size > c.height && Math.random() > 0.975)
             drops[i] = 0;
 
-        //incrementing Y coordinate
         drops[i]++;
     }
 }
@@ -86,7 +70,76 @@ function loaderDisable(){
     loader.style.display="none";
 }
 
-setTimeout(loaderDisable, 1);
+setTimeout(loaderDisable, 3250);
+
+// popUp image slider
+var modal = document.getElementById("myModal");
+var spanClose = document.getElementsByClassName("close-popup")[0];
+var carousel = document.getElementById("carousel");
+var slides = carousel.getElementsByTagName("div");
+var slideIndex = 0;
+var slideInterval;
+
+var prevBtn = document.getElementById("prevBtn");
+var nextBtn = document.getElementById("nextBtn");
+
+spanClose.onclick = function() {
+    let popupWrapper = document.querySelector(".popup-wrapper")
+    popupWrapper.classList.remove("visible")
+    popupWrapper.classList.add("hidden")
+    modal.style.display = "none";
+    stopCarousel();
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        stopCarousel();
+    }
+}
+
+prevBtn.onclick = function() {
+    slideIndex--;
+    showSlide(slideIndex);
+}
+
+nextBtn.onclick = function() {
+    slideIndex++;
+    showSlide(slideIndex);
+}
+
+function showSlide(index) {
+    if (index < 0) {
+        index = slides.length - 1;
+    } else if (index >= slides.length) {
+        index = 0;
+    }
+
+    for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    slides[index].style.display = "block";
+    slideIndex = index;
+}
+
+function startCarousel() {
+    showSlide(slideIndex);
+    slideInterval = setInterval(function() {
+        slideIndex++;
+        showSlide(slideIndex);
+    }, 3000);
+}
+
+function stopCarousel() {
+    clearInterval(slideInterval);
+}
+
+// Открытие галереи при загрузке страницы
+setTimeout( function() {
+    modal.style.display = "block";
+    startCarousel();
+}, 3000)
 
 // ItemsFolder
 let itemsFolderCSS = document.querySelector('.items.folder');
@@ -173,7 +226,7 @@ function backFunction() {
    let lastOne = [].slice.call(allVisibleWindows).pop();
    lastOne.classList.remove("visible")
    lastOne.classList.add("hidden")
-};
+}
 
 function homeFunction() {
     let allVisibleWindows = document.querySelectorAll(".visible")
@@ -181,7 +234,7 @@ function homeFunction() {
         i.classList.remove("visible")
         i.classList.add("hidden")
     }
-};
+}
 
 // openCards
 
@@ -189,7 +242,7 @@ function cardItemFunction(id) {
     let cardFolder = document.getElementById(id+"F")
     cardFolder.classList.remove("hidden")
     cardFolder.classList.add("visible")
-};
+}
 
 // cardImageSwiper
 
@@ -362,6 +415,7 @@ function submitPurchaseForm(id) {
 $(".addtocart-button").click(function () {
     var sum = cartArray[0][0].quantity+cartArray[0][1].quantity+cartArray[1][0].quantity+cartArray[1][1].quantity
     var carditemcounter = document.querySelector(".cart-item-counter")
+    carditemcounter.classList.remove("hidden")
     carditemcounter.innerHTML = sum
     cartArray[2].orderSum = sum*3500
     var totalPrice = document.querySelector(".total-price")
@@ -369,11 +423,9 @@ $(".addtocart-button").click(function () {
 })
 
 $(document).ready(function() {
-    // Обработчик события отправки формы
     $("#final-order-form").submit(function(event) {
-        event.preventDefault(); // Отменяем стандартное поведение формы
+        event.preventDefault();
 
-        // Собираем данные из полей формы
         var fio = $("#name").val();
         var phone = $("#online_phone").val();
         var purchase = `${cartArray[0].color}: ${cartArray[0][0].size} - ${cartArray[0][0].quantity}, ${cartArray[0][1].size} - ${cartArray[0][1].quantity}, ${cartArray[1].color}: ${cartArray[1][0].size} - ${cartArray[1][0].quantity}, ${cartArray[1][1].size} - ${cartArray[1][1].quantity}`
@@ -396,7 +448,6 @@ $(document).ready(function() {
 
         var address = $("#address").val();
 
-        // Создаем объект данных для отправки на сервер
         var formData = {
             fio: fio,
             phone: phone,
@@ -406,18 +457,14 @@ $(document).ready(function() {
             address: address
         };
 
-        // Отправляем данные на сервер с помощью AJAX-запроса
         $.ajax({
-            url: "php/add_data.php", // Укажите путь к вашему PHP-скрипту
+            url: "php/add_data.php",
             type: "POST",
             data: formData,
             success: function(response) {
-                // Успешное выполнение запроса
-                // Выполняем перенаправление на другую страницу
                 window.open(`https://www.tinkoff.ru/rm/khusnutdinov.vlad1/2rVee42229/?moneyAmount=${cartArray[2].orderSum+ cartArray[3].shipCost}`);
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                // В случае ошибки при выполнении запроса
                 console.log("Ошибка: " + textStatus, errorThrown);
             }
         });
@@ -468,14 +515,14 @@ function setCursorPosition(pos, e) {
     }
 }
 
-function mask(e) {
+function mask() {
     //console.log('mask',e);
     var matrix = this.placeholder,// .defaultValue
         i = 0,
         def = matrix.replace(/\D/g, ""),
         val = this.value.replace(/\D/g, "");
     def.length >= val.length && (val = def);
-    matrix = matrix.replace(/[_\d]/g, function(a) {
+    matrix = matrix.replace(/[_\d]/g, function() {
         return val.charAt(i++) || "_"
     });
     this.value = matrix;
