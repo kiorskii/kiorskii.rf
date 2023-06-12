@@ -413,6 +413,8 @@ function submitPurchaseForm(id) {
 
 
 $(".addtocart-button").click(function () {
+    var orderButton=document.querySelector(".createOrder")
+    orderButton.removeAttribute('disabled')
     var sum = cartArray[0][0].quantity+cartArray[0][1].quantity+cartArray[1][0].quantity+cartArray[1][1].quantity
     var carditemcounter = document.querySelector(".cart-item-counter")
     carditemcounter.classList.remove("hidden")
@@ -429,14 +431,13 @@ $(document).ready(function() {
         var fio = $("#name").val();
         var phone = $("#online_phone").val();
         var purchase = `${cartArray[0].color}: ${cartArray[0][0].size} - ${cartArray[0][0].quantity}, ${cartArray[0][1].size} - ${cartArray[0][1].quantity}, ${cartArray[1].color}: ${cartArray[1][0].size} - ${cartArray[1][0].quantity}, ${cartArray[1][1].size} - ${cartArray[1][1].quantity}`
-        var ordersum =`${cartArray[2].orderSum+ cartArray[3].shipCost}`
+        var ordersum = `${cartArray[2].orderSum} + ${cartArray[3].shipCost}`
         var social = $("#social").val();
         var deliveryrf = $("#delivery-rf").is(':checked')
         var deliveryww = $("#delivery-ww").is(':checked')
         var freeDelivery = $("#free-delivery").is(':checked')
         var selfPickup = $("#self-pickup").is(':checked')
         var shipType
-
         if (deliveryrf) {
             shipType = "по РФ"
         } else if (deliveryww) {
@@ -453,10 +454,10 @@ $(document).ready(function() {
             fio: fio,
             phone: phone,
             purchase: purchase,
-            ordersum: ordersum,
             social: social,
             shipType: shipType,
-            address: address
+            address: address,
+            ordersum: ordersum,
         };
 
         $.ajax({
@@ -467,7 +468,7 @@ $(document).ready(function() {
                 window.open(`https://www.tinkoff.ru/rm/khusnutdinov.vlad1/2rVee42229/?moneyAmount=${cartArray[2].orderSum+ cartArray[3].shipCost}`);
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                console.log("Ошибка: " + textStatus, errorThrown);
+               console.log("Ошибка: " + textStatus, errorThrown);
             }
         });
         var url = `https://www.tinkoff.ru/rm/khusnutdinov.vlad1/2rVee42229/?moneyAmount=${cartArray[2].orderSum+ cartArray[3].shipCost}`
