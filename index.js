@@ -470,9 +470,17 @@ $(document).ready(function() {
         });
         var url = `https://www.tinkoff.ru/rm/khusnutdinov.vlad1/2rVee42229/?moneyAmount=${cartArray[2].orderSum+ cartArray[3].shipCost}`
         window.open(url, '_blank');
+        let orderPopup = document.querySelector(".order-popup")
+        orderPopup.classList.remove("hidden")
+        orderPopup.classList.add("visible")
     });
 });
 
+function closeOrderPopup() {
+    let orderPopup = document.querySelector(".order-popup")
+    orderPopup.classList.remove("visible")
+    orderPopup.classList.add("hidden")
+}
 
 // cartOrderForm *************************
 
