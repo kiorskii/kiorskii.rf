@@ -429,6 +429,7 @@ $(document).ready(function() {
         var fio = $("#name").val();
         var phone = $("#online_phone").val();
         var purchase = `${cartArray[0].color}: ${cartArray[0][0].size} - ${cartArray[0][0].quantity}, ${cartArray[0][1].size} - ${cartArray[0][1].quantity}, ${cartArray[1].color}: ${cartArray[1][0].size} - ${cartArray[1][0].quantity}, ${cartArray[1][1].size} - ${cartArray[1][1].quantity}`
+        var ordersum =`${cartArray[2].orderSum+ cartArray[3].shipCost}`
         var social = $("#social").val();
         var deliveryrf = $("#delivery-rf").is(':checked')
         var deliveryww = $("#delivery-ww").is(':checked')
@@ -452,6 +453,7 @@ $(document).ready(function() {
             fio: fio,
             phone: phone,
             purchase: purchase,
+            ordersum: ordersum,
             social: social,
             shipType: shipType,
             address: address
