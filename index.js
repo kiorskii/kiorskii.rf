@@ -66,11 +66,12 @@ function draw()
 setInterval(draw, 60);
 
 var loader = document.getElementById("preloader")
-function loaderDisable(){
-    loader.style.display="none";
-}
 
-setTimeout(loaderDisable, 3250);
+window.addEventListener('load', function() {
+    loader.style.display="none";
+});
+
+// setTimeout(loaderDisable, 3250);
 
 // popUp image slider
 var modal = document.getElementById("myModal");
