@@ -347,6 +347,10 @@ ul {
     .carousel {
         height: 93% !important;
     }
+
+    .order-form {
+        margin-top: 8%;
+    }
 }
 
 @media only screen and (max-width: 376px) {
